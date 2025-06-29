@@ -30,7 +30,7 @@ function Footer() {
             </p>
             <div className='flex space-x-4'>
               <Link
-                href='https://www.facebook.com/profile.php?id=61574174905201'
+                href='https://www.facebook.com/profile.php?id=61577763572070'
                 className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -38,7 +38,7 @@ function Footer() {
                 <Image src='/facebook.svg' alt='Facebook' width={24} height={24} />
               </Link>
               <Link
-                href='https://www.instagram.com/jirvin.flores'
+                href='https://www.instagram.com/rifascamiari'
                 className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -46,20 +46,12 @@ function Footer() {
                 <Image src='/instagram.svg' alt='Instagram' width={24} height={24} />
               </Link>
               <Link
-                href='https://wa.me/584248719024'
+                href='https://wa.me/584244422372'
                 className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 <Image src='/whatsapp.svg' alt='WhatsApp' width={24} height={24} />
-              </Link>
-              <Link
-                href='https://www.tiktok.com/@jirvinflores'
-                className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <Image src='/tiktok.svg' alt='TikTok' width={24} height={24} />
               </Link>
             </div>
           </div>
