@@ -77,10 +77,10 @@ const PaymentInfoSection = ({
   }
 
   return (
-    <div className='space-y-6 bg-gradient-to-br from-black/40 to-amber-500/5 p-6 rounded-xl border border-amber-500/10 hover:border-amber-500/30 transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,158,11,0.15)]'>
+    <div className='space-y-6 bg-gradient-to-br from-black/40 to-primary-500/5 p-6 rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_25px_rgba(140,82,255,0.15)]'>
       <div className='flex items-center justify-between'>
-        <h2 className='text-xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent flex items-center gap-2'>
-          <CreditCard className='w-5 h-5 text-amber-500' />
+        <h2 className='text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent flex items-center gap-2'>
+          <CreditCard className='w-5 h-5 text-primary-500' />
           Métodos de Pago
         </h2>
       </div>
@@ -89,18 +89,18 @@ const PaymentInfoSection = ({
         {/* Método de Pago - Visualización en tarjetas con imágenes */}
         <div className='space-y-3'>
           <label className='text-sm font-medium text-gray-200 flex items-center gap-2'>
-            <CreditCard className='w-4 h-4 text-amber-500' />
+            <CreditCard className='w-4 h-4 text-primary-500' />
             Selecciona un método de pago:
           </label>
           
           {loading ? (
-            <div className='flex items-center justify-center p-6 bg-black/40 rounded-lg border border-amber-500/10'>
-              <Loader2 className='h-6 w-6 animate-spin text-amber-500 mr-2' />
+            <div className='flex items-center justify-center p-6 bg-black/40 rounded-lg border border-primary-500/10'>
+              <Loader2 className='h-6 w-6 animate-spin text-primary-500 mr-2' />
               <span className='text-gray-400'>Cargando métodos de pago...</span>
             </div>
           ) : filteredMethods.length === 0 ? (
-            <div className='flex flex-col items-center justify-center p-6 bg-black/40 rounded-lg border border-amber-500/10'>
-              <AlertCircle className='h-8 w-8 text-amber-500/70 mb-2' />
+            <div className='flex flex-col items-center justify-center p-6 bg-black/40 rounded-lg border border-primary-500/10'>
+              <AlertCircle className='h-8 w-8 text-primary-500/70 mb-2' />
               <p className='text-gray-300 text-center'>No hay métodos de pago disponibles para {selectedCountry}</p>
             </div>
           ) : (
@@ -115,8 +115,8 @@ const PaymentInfoSection = ({
                       key={method.id}
                       onClick={() => field.onChange(method.id)}
                       className={`relative flex flex-col items-center p-3 rounded-lg border cursor-pointer transition-all duration-200 ${field.value === method.id 
-                        ? 'bg-amber-500/10 border-amber-500/40 shadow-[0_0_10px_rgba(245,158,11,0.15)]' 
-                        : 'bg-black/40 border-gray-700/50 hover:border-amber-500/30'}`}
+                        ? 'bg-primary-500/10 border-primary-500/40 shadow-[0_0_10px_rgba(140,82,255,0.15)]' 
+                        : 'bg-black/40 border-gray-700/50 hover:border-primary-500/30'}`}
                     >
                       <div className='w-full h-20 relative mb-2 rounded-md overflow-hidden bg-black/50 flex items-center justify-center'>
                         {method.imageUrl ? (
@@ -129,14 +129,14 @@ const PaymentInfoSection = ({
                             unoptimized
                           />
                         ) : (
-                          <CreditCardIcon className='w-10 h-10 text-amber-500/50' />
+                          <CreditCardIcon className='w-10 h-10 text-primary-500/50' />
                         )}
                       </div>
-                      <span className={`text-sm font-medium text-center ${field.value === method.id ? 'text-amber-300' : 'text-gray-300'}`}>
+                      <span className={`text-sm font-medium text-center ${field.value === method.id ? 'text-primary-300' : 'text-gray-300'}`}>
                         {method.name}
                       </span>
                       {field.value === method.id && (
-                        <div className='absolute top-2 right-2 w-3 h-3 bg-amber-500 rounded-full'></div>
+                        <div className='absolute top-2 right-2 w-3 h-3 bg-primary-500 rounded-full'></div>
                       )}
                     </div>
                   ))}
@@ -145,7 +145,7 @@ const PaymentInfoSection = ({
             />
           )}
           {errors.paymentMethod && (
-            <p className='text-red-400 text-sm'>
+            <p className='text-secondary-400 text-sm'>
               {errors.paymentMethod.message}
             </p>
           )}
@@ -153,16 +153,16 @@ const PaymentInfoSection = ({
 
         {/* Información del método de pago */}
         {selectedPaymentMethod && (
-          <div className='flex flex-col gap-4 p-3 rounded-lg bg-gradient-to-br from-amber-500/10 to-black/40 border border-amber-500/20'>
+          <div className='flex flex-col gap-4 p-3 rounded-lg bg-gradient-to-br from-primary-500/10 to-black/40 border border-primary-500/20'>
             <div className='flex items-center gap-2'>
-              <Info className='w-5 h-5 text-amber-400' />
-              <h3 className='text-lg font-semibold text-amber-400'>
+              <Info className='w-5 h-5 text-primary-400' />
+              <h3 className='text-lg font-semibold text-primary-400'>
                 Información de {selectedPaymentMethod.name}
               </h3>
             </div>
 
             {selectedPaymentMethod.instructions && (
-              <div className='text-sm text-gray-300 p-3 bg-black/30 rounded-lg border border-amber-500/10'>
+              <div className='text-sm text-gray-300 p-3 bg-black/30 rounded-lg border border-primary-500/10'>
                 <p>{selectedPaymentMethod.instructions}</p>
               </div>
             )}
@@ -170,13 +170,13 @@ const PaymentInfoSection = ({
             <div className='space-y-2'>
               {/* Mostrar información básica del método de pago */}
               {selectedPaymentMethod.accountHolder && (
-                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-amber-500/10'>
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
                   <span className='text-gray-400'>Titular:</span>
                   <CopyButton text={selectedPaymentMethod.accountHolder} label={selectedPaymentMethod.accountHolder} />
                 </div>
               )}
               {selectedPaymentMethod.accountNumber && (
-                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-amber-500/10'>
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
                   <span className='text-gray-400'>Cuenta:</span>
                   <CopyButton text={selectedPaymentMethod.accountNumber} label={selectedPaymentMethod.accountNumber} />
                 </div>
@@ -184,11 +184,11 @@ const PaymentInfoSection = ({
               
               {/* Mostrar campos personalizados si existen */}
               {selectedPaymentMethod.customFields && selectedPaymentMethod.customFields.length > 0 && (
-                <div className='mt-3 pt-3 border-t border-amber-500/10'>
-                  <h4 className='text-sm font-medium text-amber-300 mb-2'>Información adicional</h4>
+                <div className='mt-3 pt-3 border-t border-primary-500/10'>
+                  <h4 className='text-sm font-medium text-primary-300 mb-2'>Información adicional</h4>
                   <div className='space-y-2'>
                     {selectedPaymentMethod.customFields.map(field => (
-                      <div key={field.id} className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-amber-500/10'>
+                      <div key={field.id} className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
                         <span className='text-gray-400'>{field.label}:</span>
                         {field.value ? (
                           <CopyButton text={field.value} label={field.value} />
@@ -203,12 +203,12 @@ const PaymentInfoSection = ({
               
               {/* Campos personalizados para que el usuario complete */}
               {selectedPaymentMethod.customFields && selectedPaymentMethod.customFields.filter(f => f.userInput).length > 0 && (
-                <div className='mt-4 pt-4 border-t border-amber-500/10 space-y-3'>
-                  <h4 className='text-sm font-medium text-amber-300'>Información requerida</h4>
+                <div className='mt-4 pt-4 border-t border-primary-500/10 space-y-3'>
+                  <h4 className='text-sm font-medium text-primary-300'>Información requerida</h4>
                   {selectedPaymentMethod.customFields.filter(f => f.userInput).map(field => (
                     <div key={field.id} className='space-y-1'>
                       <label className='text-xs font-medium text-gray-300'>
-                        {field.label} {field.required && <span className='text-red-400'>*</span>}
+                        {field.label} {field.required && <span className='text-secondary-400'>*</span>}
                       </label>
                       <Controller
                         name={`customField_${field.id}`}
@@ -219,7 +219,7 @@ const PaymentInfoSection = ({
                             {...inputField}
                             type={field.type || 'text'}
                             placeholder={field.placeholder || `Ingrese ${field.label.toLowerCase()}`}
-                            className='bg-black/50 border-gray-700/50 focus-visible:ring-amber-500/50 focus:ring-amber-500/50 focus:border-amber-500/50 transition-colors'
+                            className='bg-black/50 border-gray-700/50 focus-visible:ring-primary-500/50 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors'
                             onChange={(e) => {
                               inputField.onChange(e)
                               handleCustomFieldChange(field.id, e.target.value)
@@ -228,7 +228,7 @@ const PaymentInfoSection = ({
                         )}
                       />
                       {errors[`customField_${field.id}`] && (
-                        <p className='text-red-400 text-xs'>
+                        <p className='text-secondary-400 text-xs'>
                           {errors[`customField_${field.id}`].message}
                         </p>
                       )}
@@ -243,7 +243,7 @@ const PaymentInfoSection = ({
         {selectedMethod && (
           <div className='space-y-2'>
             <label className='text-sm font-medium text-gray-200 flex items-center gap-2'>
-              <Receipt className='w-4 h-4 text-amber-500' />
+              <Receipt className='w-4 h-4 text-primary-500' />
               Referencia de Pago
             </label>
             <Controller
@@ -259,13 +259,13 @@ const PaymentInfoSection = ({
               render={({ field }) => (
                 <Input
                   {...field}
-                  className='bg-black/50 border-gray-700/50 focus-visible:ring-amber-500/50 focus:ring-amber-500/50 focus:border-amber-500/50 transition-colors'
+                  className='bg-black/50 border-gray-700/50 focus-visible:ring-primary-500/50 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors'
                   placeholder='Número de referencia o ID de transacción'
                 />
               )}
             />
             {errors.paymentReference && (
-              <p className='text-red-400 text-sm'>
+              <p className='text-secondary-400 text-sm'>
                 {errors.paymentReference.message}
               </p>
             )}

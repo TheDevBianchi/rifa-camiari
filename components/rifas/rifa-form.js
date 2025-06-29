@@ -73,10 +73,10 @@ function CreateRaffle ({ modal, onClose }) {
   return (
     <div className='fixed inset-0 overflow-y-auto bg-black/80 backdrop-blur-sm z-50'>
       <div className='min-h-screen px-4 flex items-center justify-center'>
-        <Card className='w-full max-w-2xl bg-black/60 backdrop-blur-xl border border-primary/20 shadow-[0_0_30px_rgba(0,255,140,0.1)]'>
+        <Card className='w-full max-w-2xl bg-black/60 backdrop-blur-xl border border-primary/20 shadow-[0_0_30px_rgba(140,82,255,0.1)]'>
           <CardHeader className='border-b border-primary/20 sticky top-0 bg-black/60 backdrop-blur-xl z-10'>
             <div className='flex items-center justify-between'>
-              <CardTitle className='text-2xl font-bold bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent'>
+              <CardTitle className='text-2xl font-bold bg-gradient-to-r from-primary-400 via-secondary-400 to-primary-400 bg-clip-text text-transparent'>
                 Crear Nueva Rifa
               </CardTitle>
               <Button
@@ -94,9 +94,9 @@ function CreateRaffle ({ modal, onClose }) {
             <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
               <div className='grid gap-6 md:grid-cols-2'>
                 {/* Información básica */}
-                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-secondary/10 hover:border-secondary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,191,255,0.15)]'>
-                  <h3 className='text-xl font-bold text-secondary flex items-center gap-2'>
-                    <FileText className='w-5 h-5 text-secondary' />
+                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
+                  <h3 className='text-xl font-bold text-primary flex items-center gap-2'>
+                    <FileText className='w-5 h-5 text-primary' />
                     Información Básica
                   </h3>
 
@@ -114,10 +114,10 @@ function CreateRaffle ({ modal, onClose }) {
                               {...field}
                               id='title'
                               placeholder='Ej: iPhone 15 Pro Max'
-                              className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors'
+                              className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
                             />
                             {errors.title && (
-                              <p className='mt-1 text-sm text-red-400'>
+                              <p className='mt-1 text-sm text-secondary-400'>
                                 {errors.title.message}
                               </p>
                             )}
@@ -129,7 +129,7 @@ function CreateRaffle ({ modal, onClose }) {
                       <div className='space-y-2'>
                         <Label htmlFor='price' className='text-gray-200'>
                           <div className='flex items-center gap-2'>
-                            <DollarSign className='w-4 h-4 text-secondary' />
+                            <DollarSign className='w-4 h-4 text-primary' />
                             Precio
                           </div>
                         </Label>
@@ -143,10 +143,10 @@ function CreateRaffle ({ modal, onClose }) {
                                 type='number'
                                 step='0.01'
                                 placeholder='0.00'
-                                className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors'
+                                className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
                               />
                               {errors.price && (
-                                <p className='mt-1 text-sm text-red-400'>
+                                <p className='mt-1 text-sm text-secondary-400'>
                                   {errors.price.message}
                                 </p>
                               )}
@@ -157,7 +157,7 @@ function CreateRaffle ({ modal, onClose }) {
                       <div className='space-y-2'>
                         <Label htmlFor='totalTickets' className='text-gray-200'>
                           <div className='flex items-center gap-2'>
-                            <Hash className='w-4 h-4 text-secondary' />
+                            <Hash className='w-4 h-4 text-primary' />
                             Total Tickets
                           </div>
                         </Label>
@@ -170,7 +170,7 @@ function CreateRaffle ({ modal, onClose }) {
                                 {...field}
                                 type='number'
                                 placeholder='100'
-                                className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors'
+                                className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
                               />
                             </div>
                           )}
@@ -180,7 +180,7 @@ function CreateRaffle ({ modal, onClose }) {
                     <div className='space-y-2 w-full'>
                       <Label htmlFor='minTickets' className='text-gray-200'>
                         <div className='flex items-center gap-2'>
-                          <Hash className='w-4 h-4 text-secondary' />
+                          <Hash className='w-4 h-4 text-primary' />
                           Tickets Minimos
                         </div>
                       </Label>
@@ -193,7 +193,7 @@ function CreateRaffle ({ modal, onClose }) {
                               {...field}
                               type='number'
                               placeholder='2'
-                              className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors'
+                              className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
                             />
                           </div>
                         )}
@@ -232,9 +232,9 @@ function CreateRaffle ({ modal, onClose }) {
                 </div>
 
                 {/* Descripción e Imágenes */}
-                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,0,0,0.15)]'>
-                  <h3 className='text-xl font-bold text-accent flex items-center gap-2'>
-                    <ImageIcon className='w-5 h-5 text-accent' />
+                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-secondary/10 hover:border-secondary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,87,87,0.15)]'>
+                  <h3 className='text-xl font-bold text-secondary flex items-center gap-2'>
+                    <ImageIcon className='w-5 h-5 text-secondary' />
                     Multimedia
                   </h3>
 
@@ -251,7 +251,7 @@ function CreateRaffle ({ modal, onClose }) {
                             <Textarea
                               {...field}
                               placeholder='Describe los detalles de la rifa...'
-                              className='bg-black/50 border-gray-700/50 focus:border-accent/50 transition-colors min-h-[120px]'
+                              className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors min-h-[120px]'
                             />
                           </div>
                         )}
@@ -311,7 +311,7 @@ function CreateRaffle ({ modal, onClose }) {
                                         field.onChange(newImages)
                                         URL.revokeObjectURL(image.preview)
                                       }}
-                                      className='absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity'
+                                      className='absolute -top-2 -right-2 bg-secondary-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity'
                                     >
                                       <XIcon className='w-4 h-4' />
                                     </button>
@@ -328,7 +328,7 @@ function CreateRaffle ({ modal, onClose }) {
               </div>
 
               {/* Fechas y Opciones */}
-              <div className='bg-black/40 p-6 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,140,0.15)]'>
+              <div className='bg-black/40 p-6 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
                 <h3 className='text-xl font-bold text-primary flex items-center gap-2 mb-4'>
                   <Clock className='w-5 h-5 text-primary' />
                   Fechas
@@ -361,7 +361,7 @@ function CreateRaffle ({ modal, onClose }) {
                 <Button
                   type='submit'
                   disabled={isSubmitting}
-                  className='min-w-[200px] bg-primary hover:bg-primary/90 text-[#222222] shadow-[0_0_15px_rgba(0,255,140,0.2)]'
+                  className='min-w-[200px] bg-primary hover:bg-primary/90 text-white shadow-[0_0_15px_rgba(140,82,255,0.2)]'
                 >
                   {isSubmitting ? (
                     <div className='flex items-center gap-2'>

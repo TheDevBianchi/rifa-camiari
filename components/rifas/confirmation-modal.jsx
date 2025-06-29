@@ -45,11 +45,11 @@ const ConfirmationModal = ({
             initial={{ opacity: 0, y: 100, x: '-50%' }}
             animate={{ opacity: 1, y: '-50%', x: '-50%' }}
             exit={{ opacity: 0, y: 100 }}>
-            <div className='relative bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 shadow-xl border border-amber-500/20'>
+            <div className='relative bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 shadow-xl border border-primary-500/20'>
               {/* Close button */}
               <button
                 onClick={() => onClose()}
-                className='absolute right-4 top-4 text-gray-400 hover:text-amber-400 transition-colors'
+                className='absolute right-4 top-4 text-gray-400 hover:text-primary-400 transition-colors'
                 aria-label='Cerrar modal'>
                 <X className='h-5 w-5' />
               </button>
@@ -57,7 +57,7 @@ const ConfirmationModal = ({
               <div className='mb-6'>
                 <h2
                   id='modal-title'
-                  className='text-xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent mb-2'>
+                  className='text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent mb-2'>
                   Confirmar Compra
                 </h2>
                 <p className='text-gray-300 text-sm'>
@@ -67,8 +67,8 @@ const ConfirmationModal = ({
 
               <div className='space-y-4 mb-6'>
                 {/* Resumen de tickets */}
-                <div className='bg-black/40 p-4 rounded-lg border border-amber-500/10'>
-                  <h3 className='font-medium text-amber-400 mb-2 flex items-center gap-2'>
+                <div className='bg-black/40 p-4 rounded-lg border border-primary-500/10'>
+                  <h3 className='font-medium text-primary-400 mb-2 flex items-center gap-2'>
                     <AlertCircle className='h-4 w-4' />
                     Resumen de tickets
                   </h3>
@@ -89,7 +89,7 @@ const ConfirmationModal = ({
                       <CountryPrice amount={raffle.price} className="font-medium text-white" />
                     </div>
                     {purchaseData.promotion && (
-                      <div className='flex justify-between text-amber-300'>
+                      <div className='flex justify-between text-primary-300'>
                         <span>Promoción aplicada:</span>
                         <span>{purchaseData.promotion.name}</span>
                       </div>
@@ -98,15 +98,15 @@ const ConfirmationModal = ({
                       <span className='text-gray-300'>Total a pagar:</span>
                       <CountryPrice 
                         amount={totalAmount} 
-                        className="font-bold text-amber-400" 
+                        className="font-bold text-primary-400" 
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Método de pago */}
-                <div className='bg-black/40 p-4 rounded-lg border border-amber-500/10'>
-                  <h3 className='font-medium text-amber-400 mb-2 flex items-center gap-2'>
+                <div className='bg-black/40 p-4 rounded-lg border border-primary-500/10'>
+                  <h3 className='font-medium text-primary-400 mb-2 flex items-center gap-2'>
                     <CreditCard className='h-4 w-4' />
                     Método de pago
                   </h3>
@@ -122,7 +122,7 @@ const ConfirmationModal = ({
                           unoptimized
                         />
                       ) : (
-                        <CreditCard className='w-6 h-6 text-amber-500/50' />
+                        <CreditCard className='w-6 h-6 text-primary-500/50' />
                       )}
                     </div>
                     <div>
@@ -137,8 +137,8 @@ const ConfirmationModal = ({
                 </div>
 
                 {/* Información personal */}
-                <div className='bg-black/40 p-4 rounded-lg border border-amber-500/10'>
-                  <h3 className='font-medium text-amber-400 mb-2 flex items-center gap-2'>
+                <div className='bg-black/40 p-4 rounded-lg border border-primary-500/10'>
+                  <h3 className='font-medium text-primary-400 mb-2 flex items-center gap-2'>
                     <Receipt className='h-4 w-4' />
                     Información personal
                   </h3>
@@ -170,12 +170,12 @@ const ConfirmationModal = ({
                 <button
                   onClick={onConfirm}
                   disabled={isSubmitting}
-                  className='flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-black rounded-lg hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'
+                  className='flex-1 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:shadow-[0_0_15px_rgba(140,82,255,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'
                 >
                   {isSubmitting ? (
                     <>
                       <span className="animate-pulse">Procesando</span>
-                      <span className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+                      <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                     </>
                   ) : (
                     <>

@@ -17,7 +17,7 @@ const FloatingTotal = ({
 
   return (
     <motion.div
-      className='bg-black/80 p-6 rounded-xl border border-amber-500/10 hover:border-amber-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)]'
+      className='bg-black/80 p-6 rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]'
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -25,21 +25,21 @@ const FloatingTotal = ({
       <div className='flex flex-col space-y-4'>
         {/* Promoción aplicada */}
         {selectedPromotion && (
-          <div className='flex items-center justify-between bg-amber-900/20 p-3 rounded-lg border border-amber-500/20'>
+          <div className='flex items-center justify-between bg-primary-900/20 p-3 rounded-lg border border-primary-500/20'>
             <div className='flex items-center gap-2'>
-              <Tag className='w-4 h-4 text-amber-400' />
-              <span className='text-sm font-medium text-amber-300'>Promoción aplicada:</span>
+              <Tag className='w-4 h-4 text-primary-400' />
+              <span className='text-sm font-medium text-primary-300'>Promoción aplicada:</span>
               <span className='text-sm font-medium text-white'>{selectedPromotion.name}</span>
             </div>
             <div className='flex items-center gap-1'>
               {selectedPromotion.discountType === 'percentage' && (
-                <Percent className='w-4 h-4 text-amber-400' />
+                <Percent className='w-4 h-4 text-primary-400' />
               )}
               {selectedPromotion.discountType === 'lower_cost' && (
-                <ArrowDownCircle className='w-4 h-4 text-amber-400' />
+                <ArrowDownCircle className='w-4 h-4 text-secondary-400' />
               )}
               {selectedPromotion.discountType === 'package' && (
-                <Package className='w-4 h-4 text-amber-400' />
+                <Package className='w-4 h-4 text-primary-400' />
               )}
             </div>
           </div>
@@ -53,7 +53,7 @@ const FloatingTotal = ({
                 <span className='text-sm text-gray-400 line-through mr-2'>
                   <CountryPrice amount={regularTotal} className="inline" />
                 </span>
-                <span className='text-xs bg-amber-900/30 text-amber-300 px-2 py-0.5 rounded-full'>
+                <span className='text-xs bg-secondary-900/30 text-secondary-300 px-2 py-0.5 rounded-full'>
                   Ahorras <CountryPrice amount={savings} className="inline" />
                 </span>
               </div>
@@ -61,7 +61,7 @@ const FloatingTotal = ({
             <div className='flex flex-col'>
               <div className='flex items-center'>
                 <span className='text-sm font-medium text-gray-300 mr-2'>Total:</span>
-                <span className='text-lg font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent'>
+                <span className='text-lg font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>
                   <CountryPrice amount={discountedTotal} className="inline" />
                 </span>
               </div>
@@ -79,7 +79,7 @@ const FloatingTotal = ({
               className={`px-4 py-2 text-sm font-medium rounded-md ${
                 isSubmitting || ticketCount < minTickets
                   ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all duration-300'
+                  : 'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-[0_0_15px_rgba(140,82,255,0.3)] transition-all duration-300'
               }`}
             >
               {isSubmitting ? 'Comprando...' : 'Comprar'}

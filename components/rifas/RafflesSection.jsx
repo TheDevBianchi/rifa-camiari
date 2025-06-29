@@ -14,12 +14,12 @@ const LoadingState = () => (
 
 const ErrorState = ({ error, onRetry }) => (
   <div className='flex flex-col items-center justify-center min-h-[400px] text-center'>
-    <div className='bg-red-500/10 text-red-500 p-4 rounded-lg max-w-md'>
+    <div className='bg-secondary-500/10 text-secondary-500 p-4 rounded-lg max-w-md'>
       <h3 className='text-lg font-semibold mb-2'>Error al cargar las rifas</h3>
       <p className='text-sm'>{error}</p>
       <button
         onClick={onRetry}
-        className='mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors'>
+        className='mt-4 bg-secondary-500 text-white px-4 py-2 rounded-md hover:bg-secondary-600 transition-colors'>
         Intentar nuevamente
       </button>
     </div>

@@ -42,9 +42,9 @@ export function RaffleCard ({ raffle }) {
   const scrollNext = () => emblaApi?.scrollNext()
 
   return (
-    <div className='group relative bg-[#111111] rounded-xl border border-amber-500/10 hover:border-amber-500/30 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)]'>
+    <div className='group relative bg-[#111111] rounded-xl border border-primary-500/10 hover:border-primary-500/30 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]'>
       {/* Ribbon */}
-      <div className='absolute top-4 right-0 z-10 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium py-1 px-4 text-sm shadow-md transform skew-x-[-15deg]'>
+      <div className='absolute top-4 right-0 z-10 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-1 px-4 text-sm shadow-md transform skew-x-[-15deg]'>
         <span className='transform skew-x-[15deg] inline-block'>Disponible</span>
       </div>
       
@@ -81,13 +81,13 @@ export function RaffleCard ({ raffle }) {
         {/* Carousel controls */}
         <button
           onClick={scrollPrev}
-          className='absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-amber-500/70 transition-colors opacity-0 group-hover:opacity-100 z-10'
+          className='absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-primary-500/70 transition-colors opacity-0 group-hover:opacity-100 z-10'
         >
           <ChevronLeft className='w-5 h-5 text-white' />
         </button>
         <button
           onClick={scrollNext}
-          className='absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-amber-500/70 transition-colors opacity-0 group-hover:opacity-100 z-10'
+          className='absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-primary-500/70 transition-colors opacity-0 group-hover:opacity-100 z-10'
         >
           <ChevronRight className='w-5 h-5 text-white' />
         </button>
@@ -100,8 +100,8 @@ export function RaffleCard ({ raffle }) {
                 key={index}
                 className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                   index === selectedIndex
-                    ? 'bg-amber-500 w-3'
-                    : 'bg-white/50 hover:bg-amber-400/80'
+                    ? 'bg-primary-500 w-3'
+                    : 'bg-white/50 hover:bg-primary-400/80'
                 }`}
               />
             ))}
@@ -109,7 +109,7 @@ export function RaffleCard ({ raffle }) {
       </div>
 
       <div className='flex flex-col p-5 space-y-4'>
-        <h3 className='text-xl font-bold text-white group-hover:text-amber-400 transition-colors line-clamp-1'>
+        <h3 className='text-xl font-bold text-white group-hover:text-primary-400 transition-colors line-clamp-1'>
           {raffle.title}
         </h3>
         <p className='text-gray-400 text-sm line-clamp-2'>{raffle.description}</p>
@@ -117,7 +117,7 @@ export function RaffleCard ({ raffle }) {
         <div className='flex justify-between items-center pt-2'>
           <div className='flex flex-col'>
             <span className='text-gray-400 text-xs'>Precio:</span>
-            <span className='text-amber-400 font-bold text-lg'>
+            <span className='text-primary-400 font-bold text-lg'>
               ${raffle.price} USD
             </span>
           </div>
@@ -136,8 +136,8 @@ export function RaffleCard ({ raffle }) {
           <Link
             href={`/rifa/${raffle.id}`}
             className='
-              flex-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 
-              text-black py-2.5 px-4 rounded-lg font-medium transition-all duration-300 
+              flex-1 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 
+              text-white py-2.5 px-4 rounded-lg font-medium transition-all duration-300 
               text-center hover:cursor-pointer flex items-center justify-center
             '
           >
@@ -147,8 +147,8 @@ export function RaffleCard ({ raffle }) {
           <button
             onClick={() => setIsVerificationModalOpen(true)}
             className='
-              bg-black border border-amber-500/50 text-amber-400 py-2.5 px-4 rounded-lg font-medium
-              hover:bg-amber-500/10 transition-all duration-300
+              bg-black border border-primary-500/50 text-primary-400 py-2.5 px-4 rounded-lg font-medium
+              hover:bg-primary-500/10 transition-all duration-300
             '
           >
             Verificar

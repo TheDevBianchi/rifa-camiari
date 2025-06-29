@@ -75,7 +75,7 @@ const VerifyTicketsModal = ({ isOpen, onClose, raffleId, raffleName }) => {
         >
           <div className="flex items-center justify-between p-5 border-b border-zinc-800">
             <h2 className="text-xl font-bold text-white flex items-center">
-              <Ticket className="h-5 w-5 mr-2 text-amber-500" />
+              <Ticket className="h-5 w-5 mr-2 text-primary-500" />
               Verificar Tickets
             </h2>
             <button 
@@ -89,7 +89,7 @@ const VerifyTicketsModal = ({ isOpen, onClose, raffleId, raffleName }) => {
           <div className="p-5">
             <div className="mb-6">
               <p className="text-zinc-300 mb-2">
-                Verifica los tickets que has comprado para la rifa <span className="text-amber-400 font-medium">{raffleName}</span>
+                Verifica los tickets que has comprado para la rifa <span className="text-primary-400 font-medium">{raffleName}</span>
               </p>
               
               <form onSubmit={handleVerify} className="space-y-4 mt-4">
@@ -102,14 +102,14 @@ const VerifyTicketsModal = ({ isOpen, onClose, raffleId, raffleName }) => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Ingresa el correo con el que compraste"
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                     />
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400 h-5 w-5" />
                   </div>
                 </div>
                 
                 {error && (
-                  <div className="bg-red-900/30 border border-red-700 rounded-lg p-3 text-red-200 flex items-center">
+                  <div className="bg-secondary-900/30 border border-secondary-700 rounded-lg p-3 text-secondary-200 flex items-center">
                     <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0" />
                     {error}
                   </div>
@@ -118,11 +118,11 @@ const VerifyTicketsModal = ({ isOpen, onClose, raffleId, raffleName }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-black font-medium py-2 rounded-lg transition-colors flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-primary-500 hover:bg-primary-400 text-white font-medium py-2 rounded-lg transition-colors flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
                       Verificando...
                     </>
                   ) : (
@@ -156,7 +156,7 @@ const VerifyTicketsModal = ({ isOpen, onClose, raffleId, raffleName }) => {
                   </div>
                 ) : (
                   <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-700 text-center">
-                    <AlertCircle className="h-10 w-10 text-amber-500 mx-auto mb-2" />
+                    <AlertCircle className="h-10 w-10 text-primary-500 mx-auto mb-2" />
                     <p className="text-zinc-300">No se encontraron tickets confirmados para este correo electrónico en esta rifa.</p>
                     <p className="text-zinc-400 text-sm mt-2">Verifica que el correo sea correcto o contacta con soporte si crees que hay un error.</p>
                   </div>

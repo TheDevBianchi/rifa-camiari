@@ -52,11 +52,11 @@ const SuccessModal = ({ isOpen, onClose, purchaseData, raffle }) => {
             initial={{ opacity: 0, y: 100, x: '-50%' }}
             animate={{ opacity: 1, y: '-50%', x: '-50%' }}
             exit={{ opacity: 0, y: 100 }}>
-            <div className='relative bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 shadow-xl border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.05)]'>
+            <div className='relative bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 shadow-xl border border-primary-500/20 shadow-[0_0_15px_rgba(140,82,255,0.05)]'>
               {/* Close button */}
               <button
                 onClick={() => onClose()}
-                className='absolute right-4 top-4 text-gray-400 hover:text-amber-400 transition-colors'
+                className='absolute right-4 top-4 text-gray-400 hover:text-primary-400 transition-colors'
                 aria-label='Cerrar modal'>
                 <X className='h-5 w-5' />
               </button>
@@ -70,14 +70,14 @@ const SuccessModal = ({ isOpen, onClose, purchaseData, raffle }) => {
                   stiffness: 260,
                   damping: 20,
                 }}
-                className='mx-auto w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mb-6 border border-amber-500/30'>
-                <Check className='h-8 w-8 text-amber-500' />
+                className='mx-auto w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 border border-primary-500/30'>
+                <Check className='h-8 w-8 text-primary-500' />
               </motion.div>
 
               <div className='text-center mb-6'>
                 <h2
                   id='modal-title'
-                  className='text-xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent mb-2'>
+                  className='text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent mb-2'>
                   ¡Reserva Exitosa!
                 </h2>
                 <p className='text-gray-300 text-sm'>
@@ -88,8 +88,8 @@ const SuccessModal = ({ isOpen, onClose, purchaseData, raffle }) => {
 
               <div className='space-y-4 mb-6'>
                 {/* Resumen de tickets */}
-                <div className='bg-black/40 p-4 rounded-lg border border-amber-500/10'>
-                  <h3 className='font-medium text-amber-400 mb-2 flex items-center gap-2'>
+                <div className='bg-black/40 p-4 rounded-lg border border-primary-500/10'>
+                  <h3 className='font-medium text-primary-400 mb-2 flex items-center gap-2'>
                     <Ticket className='h-4 w-4' />
                     Detalles de la compra
                   </h3>
@@ -113,15 +113,15 @@ const SuccessModal = ({ isOpen, onClose, purchaseData, raffle }) => {
                       <span className='text-gray-400'>Total:</span>
                       <CountryPrice 
                         amount={purchaseData.selectedTickets.length * raffle.price} 
-                        className="font-medium text-amber-400" 
+                        className="font-medium text-primary-400" 
                       />
                     </div>
                   </div>
                 </div>
                 
                 {/* Método de pago */}
-                <div className='bg-black/40 p-4 rounded-lg border border-amber-500/10'>
-                  <h3 className='font-medium text-amber-400 mb-2 flex items-center gap-2'>
+                <div className='bg-black/40 p-4 rounded-lg border border-primary-500/10'>
+                  <h3 className='font-medium text-primary-400 mb-2 flex items-center gap-2'>
                     <CreditCard className='h-4 w-4' />
                     Método de pago
                   </h3>
@@ -143,7 +143,7 @@ const SuccessModal = ({ isOpen, onClose, purchaseData, raffle }) => {
                   href={whatsappUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-black rounded-lg hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'>
+                  className='flex-1 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:shadow-[0_0_15px_rgba(140,82,255,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'>
                   Contactar por WhatsApp
                   <ArrowRight className="w-4 h-4" />
                 </a>

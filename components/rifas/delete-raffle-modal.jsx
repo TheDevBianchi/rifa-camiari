@@ -23,7 +23,7 @@ export function DeleteRaffleModal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <div className='flex items-center gap-3 text-amber-500'>
+          <div className='flex items-center gap-3 text-secondary-500'>
             <AlertTriangle size={24} />
             <DialogTitle>Confirmar eliminación</DialogTitle>
           </div>
@@ -36,16 +36,16 @@ export function DeleteRaffleModal({
           </DialogDescription>
 
           {(hasPendingPurchases || hasConfirmedUsers) && (
-            <div className='bg-amber-50 border border-amber-200 rounded-md p-4 text-sm'>
-              <p className='font-medium text-amber-800 mb-2'>¡Atención!</p>
+            <div className='bg-secondary-50 border border-secondary-200 rounded-md p-4 text-sm'>
+              <p className='font-medium text-secondary-800 mb-2'>¡Atención!</p>
               {hasPendingPurchases && (
-                <p className='text-amber-700 mb-2'>
+                <p className='text-secondary-700 mb-2'>
                   Esta rifa tiene {raffle.pendingPurchases.length} compras
                   pendientes.
                 </p>
               )}
               {hasConfirmedUsers && (
-                <p className='text-amber-700'>
+                <p className='text-secondary-700'>
                   Esta rifa tiene {raffle.users.length} tickets vendidos.
                 </p>
               )}

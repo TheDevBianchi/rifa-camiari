@@ -162,11 +162,11 @@ const TicketGrid = memo(({
                 'w-full p-2 text-sm rounded-md transition-all duration-300 flex items-center justify-center',
                 'focus:outline-none focus:ring-2',
                 ticket.cursorStyle,
-                ticket.isHighlighted && 'ring-4 ring-amber-500 ring-opacity-75',
-                ticket.isSelected && 'bg-amber-500 text-gray-900 shadow-[0_0_10px_rgba(245,158,11,0.3)]',
-                ticket.isSold && 'bg-black text-amber-500 border border-amber-500/30 cursor-not-allowed',
-                ticket.isReserved && 'bg-amber-900/20 text-amber-300 border border-amber-500/30',
-                !ticket.isSold && !ticket.isReserved && !ticket.isSelected && 'bg-black/50 text-gray-200 border border-gray-700/50 hover:bg-gray-800/50 hover:border-amber-600/50'
+                ticket.isHighlighted && 'ring-4 ring-primary-500 ring-opacity-75',
+                ticket.isSelected && 'bg-primary-500 text-white shadow-[0_0_10px_rgba(140,82,255,0.3)]',
+                ticket.isSold && 'bg-black text-secondary-500 border border-secondary-500/30 cursor-not-allowed',
+                ticket.isReserved && 'bg-primary-900/20 text-primary-300 border border-primary-500/30',
+                !ticket.isSold && !ticket.isReserved && !ticket.isSelected && 'bg-black/50 text-gray-200 border border-gray-700/50 hover:bg-gray-800/50 hover:border-primary-600/50'
               )}
             >
               {ticket.isSold ? (
@@ -179,7 +179,7 @@ const TicketGrid = memo(({
             
             {/* Mostrar información del comprador en tickets vendidos */}
             {isDashboard && ticket.buyer && (
-              <div className="absolute -top-1 -right-1 bg-amber-500 text-black rounded-full p-0.5 cursor-pointer"
+              <div className="absolute -top-1 -right-1 bg-primary-500 text-white rounded-full p-0.5 cursor-pointer"
                 onClick={() => {
                   setSelectedUser({
                     ...ticket.buyer,
@@ -198,7 +198,7 @@ const TicketGrid = memo(({
               <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 
                   type="button" 
-                  className="h-5 w-5 rounded-full bg-amber-500 text-black flex items-center justify-center"
+                  className="h-5 w-5 rounded-full bg-secondary-500 text-white flex items-center justify-center"
                   onClick={() => setTicketToUnreserve(ticket.number)}
                 >
                   <span className="text-xs font-bold">×</span>

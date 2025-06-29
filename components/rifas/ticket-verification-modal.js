@@ -47,7 +47,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
         <AnimatePresence>
             <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
                 <motion.div 
-                    className="bg-zinc-900 border border-amber-500/20 rounded-xl p-6 max-w-md w-full shadow-[0_0_15px_rgba(245,158,11,0.15)]"
+                    className="bg-zinc-900 border border-primary-500/20 rounded-xl p-6 max-w-md w-full shadow-[0_0_15px_rgba(140,82,255,0.15)]"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
@@ -56,7 +56,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                     <div className="relative">
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-bold text-white flex items-center">
-                                <Ticket className="h-5 w-5 mr-2 text-amber-500" />
+                                <Ticket className="h-5 w-5 mr-2 text-primary-500" />
                                 Verificar Tickets
                             </h2>
                             <button 
@@ -79,7 +79,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                                 placeholder="Tu nombre completo"
                             />
                             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400">
@@ -101,7 +101,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                                 placeholder="correo@ejemplo.com"
                             />
                             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400">
@@ -123,7 +123,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                                 value={formData.phone}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                                 placeholder="+123456789"
                             />
                             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400">
@@ -145,11 +145,11 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="px-6 py-2 text-sm font-medium text-black bg-amber-500 rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                            className="px-6 py-2 text-sm font-medium text-white bg-primary-500 rounded-lg hover:bg-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
                         >
                             {isLoading ? (
                                 <>
-                                    <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+                                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
                                     Verificando...
                                 </>
                             ) : (
@@ -164,29 +164,29 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
 
                 {verificationResult && (
                     <div className="mt-6 border-t border-zinc-700/50 pt-6">
-                        <div className={`p-4 rounded-lg mb-4 flex items-start ${verificationResult.success ? "bg-green-900/20 border border-green-700" : "bg-red-900/20 border border-red-700"}`}>
+                        <div className={`p-4 rounded-lg mb-4 flex items-start ${verificationResult.success ? "bg-green-900/20 border border-green-700" : "bg-secondary-900/20 border border-secondary-700"}`}>
                             {verificationResult.success ? (
                                 <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                             ) : (
-                                <AlertCircle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                                <AlertCircle className="h-5 w-5 text-secondary-500 mr-2 flex-shrink-0 mt-0.5" />
                             )}
-                            <p className={`text-sm ${verificationResult.success ? "text-green-300" : "text-red-300"}`}>
+                            <p className={`text-sm ${verificationResult.success ? "text-green-300" : "text-secondary-300"}`}>
                                 {verificationResult.message}
                             </p>
                         </div>
                         {verificationResult.tickets.length > 0 && (
                             <div>
                                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-                                    <Ticket className="h-5 w-5 mr-2 text-amber-500" />
+                                    <Ticket className="h-5 w-5 mr-2 text-primary-500" />
                                     Tus tickets:
                                 </h3>
                                 <div className="space-y-4 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
                                     {verificationResult.tickets.map((item, index) => (
                                         <div key={index} 
-                                            className="bg-zinc-800 border border-amber-500/10 p-4 rounded-xl hover:border-amber-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                                            className="bg-zinc-800 border border-primary-500/10 p-4 rounded-xl hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]"
                                         >
                                             <div className="flex justify-between items-start mb-3">
-                                                <h4 className="text-amber-400 font-medium">
+                                                <h4 className="text-primary-400 font-medium">
                                                     {item.raffleName || `Rifa ${item.raffleId}`}
                                                 </h4>
                                                 <span className="text-white font-medium">
@@ -196,7 +196,7 @@ export default function TicketVerificationModal({ isOpen, onClose, raffleId }) {
                                             <div className="flex flex-wrap gap-2">
                                                 {item.tickets.map((ticket, idx) => (
                                                     <span key={idx} 
-                                                        className="px-2 py-1 bg-black/40 border border-amber-500/20 rounded-md text-sm text-white hover:border-amber-500/40 transition-colors"
+                                                        className="px-2 py-1 bg-black/40 border border-primary-500/20 rounded-md text-sm text-white hover:border-primary-500/40 transition-colors"
                                                     >
                                                         #{ticket}
                                                     </span>

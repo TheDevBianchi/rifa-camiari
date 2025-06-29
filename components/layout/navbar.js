@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import CountrySelector from "@/components/ui/country-selector"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,7 +45,7 @@ const Navbar = () => {
               height={50} 
               className="h-10 w-auto" 
             />
-            <span className="ml-2 text-xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">Rifas Adrian</span>
+            <span className="ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">Rifas Adrian</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,7 +54,7 @@ const Navbar = () => {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${pathname === link.href ? 'text-amber-400' : 'text-white hover:text-amber-300'}`}
+                className={`text-sm font-medium transition-colors ${pathname === link.href ? 'text-primary-400' : 'text-white hover:text-primary-300'}`}
               >
                 {link.name}
               </Link>
@@ -64,16 +63,13 @@ const Navbar = () => {
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Selector de países */}
-            <CountrySelector />
-            
-            <Link href="/dashboard" className="flex items-center text-white hover:text-amber-300 transition-colors">
+            <Link href="/dashboard" className="flex items-center text-white hover:text-primary-300 transition-colors">
               <User className="h-5 w-5 mr-1" />
               <span className="text-sm">Mi Cuenta</span>
             </Link>
             <Link 
               href="/rifas" 
-              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center"
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center"
             >
               <Gift className="h-4 w-4 mr-2" />
               <span>Comprar Tickets</span>
@@ -84,7 +80,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-amber-300 focus:outline-none"
+              className="text-white hover:text-primary-300 focus:outline-none"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -105,20 +101,15 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block py-2 text-base font-medium ${pathname === link.href ? 'text-amber-400' : 'text-white hover:text-amber-300'}`}
+                className={`block py-2 text-base font-medium ${pathname === link.href ? 'text-primary-400' : 'text-white hover:text-primary-300'}`}
               >
                 {link.name}
               </Link>
             ))}
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
-              {/* Selector de países en móvil */}
-              <div className="flex items-center justify-center py-2">
-                <CountrySelector />
-              </div>
-              
               <Link 
                 href="/dashboard" 
-                className="flex items-center text-white hover:text-amber-300 transition-colors py-2"
+                className="flex items-center text-white hover:text-primary-300 transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 <User className="h-5 w-5 mr-2" />
@@ -126,7 +117,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 href="/comprar" 
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center justify-center"
+                className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center justify-center"
                 onClick={() => setIsOpen(false)}
               >
                 <Gift className="h-4 w-4 mr-2" />

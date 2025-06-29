@@ -56,24 +56,24 @@ function RaffleList ({ raffles }) {
           return (
             <div
               key={raffle.id}
-              className='bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)] transition-all duration-300 border border-amber-500/10 hover:border-amber-500/30'
+              className='bg-gradient-to-br from-black to-gray-900 rounded-lg p-6 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)] transition-all duration-300 border border-primary-500/10 hover:border-primary-500/30'
               role='listitem'
             >
-              <h3 className='text-lg font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent mb-2'>
+              <h3 className='text-lg font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent mb-2'>
                 {raffle.title}
               </h3>
 
               <div className='space-y-3 text-gray-300'>
                 <div className='flex items-center justify-between'>
                   <span className='flex items-center gap-1'>
-                    <DollarSign className='w-3.5 h-3.5 text-amber-400' />
+                    <DollarSign className='w-3.5 h-3.5 text-primary-400' />
                     Precio:
                   </span>
-                  <CountryPrice amount={raffle.price} className='text-amber-400 font-semibold' />
+                  <CountryPrice amount={raffle.price} className='text-primary-400 font-semibold' />
                 </div>
 
                 <div className='flex items-center gap-2'>
-                  <Ticket className='w-4 h-4 text-amber-400' />
+                  <Ticket className='w-4 h-4 text-primary-400' />
                   <div className='flex-1'>
                     <Progress value={progress} className='h-2 bg-black/60' />
                   </div>
@@ -86,15 +86,15 @@ function RaffleList ({ raffles }) {
                       {raffle.totalTickets - soldTickets - reservedTickets}
                     </span>
                   </div>
-                  <div className='text-center bg-black/40 p-2 rounded-lg border border-amber-500/20'>
+                  <div className='text-center bg-black/40 p-2 rounded-lg border border-primary-500/20'>
                     <span className='block text-gray-400'>Reservados</span>
-                    <span className='font-semibold text-amber-400'>
+                    <span className='font-semibold text-primary-400'>
                       {reservedTickets}
                     </span>
                   </div>
-                  <div className='text-center bg-black/40 p-2 rounded-lg border border-green-500/20'>
+                  <div className='text-center bg-black/40 p-2 rounded-lg border border-secondary-500/20'>
                     <span className='block text-gray-400'>Vendidos</span>
-                    <span className='font-semibold text-green-400'>
+                    <span className='font-semibold text-secondary-400'>
                       {soldTickets}
                     </span>
                   </div>
@@ -114,7 +114,7 @@ function RaffleList ({ raffles }) {
               <div className='mt-4 flex justify-between items-center gap-3'>
                 <Link
                   href={`rifas/${raffle.id}`}
-                  className='flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-black px-4 py-2 rounded-md hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'
+                  className='flex-1 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-md hover:shadow-[0_0_15px_rgba(140,82,255,0.3)] transition-all duration-300 font-medium text-sm flex items-center justify-center gap-2'
                   aria-label={`Ver detalles de la rifa ${raffle.title}`}
                 >
                   Ver Rifa
@@ -127,7 +127,7 @@ function RaffleList ({ raffles }) {
                   )}
                   <button
                     onClick={() => setSelectedRaffle(raffle)}
-                    className='p-2 text-red-400 hover:bg-red-950/50 rounded-full transition-colors border border-red-500/30 hover:border-red-500/50'
+                    className='p-2 text-secondary-400 hover:bg-secondary-950/50 rounded-full transition-colors border border-secondary-500/30 hover:border-secondary-500/50'
                     aria-label={`Eliminar rifa ${raffle.title}`}
                   >
                     <Trash2 className='w-5 h-5' />

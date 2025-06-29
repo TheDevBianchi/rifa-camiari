@@ -55,8 +55,8 @@ const ContactoPage = () => {
     <div className='min-h-screen bg-black relative overflow-hidden'>
       {/* Elementos decorativos */}
       <div className='absolute inset-0 opacity-5'>
-        <div className='absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent'></div>
-        <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent'></div>
+        <div className='absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent'></div>
+        <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent'></div>
         <div className='absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]'></div>
       </div>
       
@@ -65,7 +65,7 @@ const ContactoPage = () => {
         
         <main className='container mx-auto px-4 py-12 max-w-6xl'>
           <motion.h1 
-            className='text-4xl md:text-5xl font-bold text-center text-amber-500 mb-8'
+            className='text-4xl md:text-5xl font-bold text-center text-primary-500 mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -80,7 +80,7 @@ const ContactoPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className='text-2xl font-semibold text-amber-400 mb-6'>Envíanos un Mensaje</h2>
+              <h2 className='text-2xl font-semibold text-primary-400 mb-6'>Envíanos un Mensaje</h2>
               
               {submitSuccess ? (
                 <div className='bg-green-900/30 border border-green-700 rounded-lg p-6 text-center'>
@@ -89,7 +89,7 @@ const ContactoPage = () => {
                   <p className='text-zinc-300 mb-4'>Gracias por contactarnos. Te responderemos a la brevedad posible.</p>
                   <button 
                     onClick={() => setSubmitSuccess(false)}
-                    className='bg-amber-500 text-black px-6 py-2 rounded-full font-medium hover:bg-amber-400 transition-colors'
+                    className='bg-primary-500 text-white px-6 py-2 rounded-full font-medium hover:bg-primary-400 transition-colors'
                   >
                     Enviar otro mensaje
                   </button>
@@ -105,7 +105,7 @@ const ContactoPage = () => {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                     />
                   </div>
                   
@@ -118,7 +118,7 @@ const ContactoPage = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                     />
                   </div>
                   
@@ -131,7 +131,7 @@ const ContactoPage = () => {
                       value={formState.subject}
                       onChange={handleChange}
                       required
-                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                     />
                   </div>
                   
@@ -144,12 +144,12 @@ const ContactoPage = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                      className='w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                     />
                   </div>
                   
                   {submitError && (
-                    <div className='bg-red-900/30 border border-red-700 rounded-lg p-3 text-red-200'>
+                    <div className='bg-secondary-900/30 border border-secondary-700 rounded-lg p-3 text-secondary-200'>
                       {submitError}
                     </div>
                   )}
@@ -157,7 +157,7 @@ const ContactoPage = () => {
                   <button
                     type='submit'
                     disabled={isSubmitting}
-                    className='bg-amber-500 text-black px-6 py-3 rounded-full font-medium hover:bg-amber-400 transition-colors flex items-center justify-center w-full md:w-auto disabled:opacity-70 disabled:cursor-not-allowed'
+                    className='bg-primary-500 text-white px-6 py-3 rounded-full font-medium hover:bg-primary-400 transition-colors flex items-center justify-center w-full md:w-auto disabled:opacity-70 disabled:cursor-not-allowed'
                   >
                     {isSubmitting ? 'Enviando...' : (
                       <>
@@ -177,41 +177,41 @@ const ContactoPage = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div className='bg-zinc-900 rounded-xl p-6 md:p-8 border border-zinc-800'>
-                <h2 className='text-2xl font-semibold text-amber-400 mb-6'>Información de Contacto</h2>
+                <h2 className='text-2xl font-semibold text-primary-400 mb-6'>Información de Contacto</h2>
                 
                 <div className='space-y-4'>
                   <div className='flex items-start'>
-                    <Mail className='h-6 w-6 text-amber-500 mt-1 mr-3 flex-shrink-0' />
+                    <Mail className='h-6 w-6 text-primary-500 mt-1 mr-3 flex-shrink-0' />
                     <div>
                       <h3 className='text-white font-medium'>Correo Electrónico</h3>
-                      <a href='mailto:info@rifaadrian.com' className='text-zinc-300 hover:text-amber-400 transition-colors'>
+                      <a href='mailto:info@rifaadrian.com' className='text-zinc-300 hover:text-primary-400 transition-colors'>
                         info@rifaadrian.com
                       </a>
                     </div>
                   </div>
                   
                   <div className='flex items-start'>
-                    <Phone className='h-6 w-6 text-amber-500 mt-1 mr-3 flex-shrink-0' />
+                    <Phone className='h-6 w-6 text-primary-500 mt-1 mr-3 flex-shrink-0' />
                     <div>
                       <h3 className='text-white font-medium'>Teléfono</h3>
-                      <a href='tel:+123456789' className='text-zinc-300 hover:text-amber-400 transition-colors'>
+                      <a href='tel:+123456789' className='text-zinc-300 hover:text-primary-400 transition-colors'>
                         +1 (234) 567-890
                       </a>
                     </div>
                   </div>
                   
                   <div className='flex items-start'>
-                    <MessageSquare className='h-6 w-6 text-amber-500 mt-1 mr-3 flex-shrink-0' />
+                    <MessageSquare className='h-6 w-6 text-primary-500 mt-1 mr-3 flex-shrink-0' />
                     <div>
                       <h3 className='text-white font-medium'>Redes Sociales</h3>
                       <div className='flex space-x-3 mt-2'>
-                        <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-amber-400 transition-colors'>
+                        <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-primary-400 transition-colors'>
                           Instagram
                         </a>
-                        <a href='https://facebook.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-amber-400 transition-colors'>
+                        <a href='https://facebook.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-primary-400 transition-colors'>
                           Facebook
                         </a>
-                        <a href='https://twitter.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-amber-400 transition-colors'>
+                        <a href='https://twitter.com' target='_blank' rel='noopener noreferrer' className='text-zinc-300 hover:text-primary-400 transition-colors'>
                           Twitter
                         </a>
                       </div>
@@ -221,13 +221,13 @@ const ContactoPage = () => {
               </div>
               
               <div className='bg-zinc-900 rounded-xl p-6 md:p-8 border border-zinc-800'>
-                <h2 className='text-2xl font-semibold text-amber-400 mb-4'>Preguntas Frecuentes</h2>
+                <h2 className='text-2xl font-semibold text-primary-400 mb-4'>Preguntas Frecuentes</h2>
                 
                 <div className='space-y-4'>
                   <div>
                     <h3 className='text-white font-medium'>¿Tienes dudas sobre cómo participar?</h3>
                     <p className='text-zinc-300 mt-1'>
-                      Visita nuestra página de <Link href='/como-participar' className='text-amber-400 hover:underline'>Cómo Participar</Link> para obtener información detallada.
+                      Visita nuestra página de <Link href='/como-participar' className='text-primary-400 hover:underline'>Cómo Participar</Link> para obtener información detallada.
                     </p>
                   </div>
                   
@@ -241,7 +241,7 @@ const ContactoPage = () => {
                   <div>
                     <h3 className='text-white font-medium'>¿Quieres conocer las rifas disponibles?</h3>
                     <p className='text-zinc-300 mt-1'>
-                      Explora nuestra sección de <Link href='/rifas' className='text-amber-400 hover:underline'>Rifas</Link> para ver todos los sorteos activos.
+                      Explora nuestra sección de <Link href='/rifas' className='text-primary-400 hover:underline'>Rifas</Link> para ver todos los sorteos activos.
                     </p>
                   </div>
                 </div>

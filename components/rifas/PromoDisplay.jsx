@@ -51,28 +51,28 @@ export function PromoDisplay({ raffleId, ticketPrice }) {
           >
             <div className="font-medium text-white mb-1">{promo.name}</div>
             {promo.discountType === 'percentage' && (
-              <div className="flex items-center text-yellow-400">
+              <div className="flex items-center text-primary-400">
                 <Percent className="h-3.5 w-3.5 mr-1" />
                 <span>{promo.discountValue}% de descuento</span>
               </div>
             )}
             
             {promo.discountType === 'lower_cost' && (
-              <div className="flex items-center text-green-400">
+              <div className="flex items-center text-secondary-400">
                 <ArrowDownCircle className="h-3.5 w-3.5 mr-1" />
                 <span>Precio especial: ${promo.newTicketPrice} por ticket</span>
-                <Badge className="ml-2 bg-green-900/50 text-green-300 text-xs">
+                <Badge className="ml-2 bg-secondary-900/50 text-secondary-300 text-xs">
                   Ahorra ${(ticketPrice - promo.newTicketPrice).toFixed(2)}
                 </Badge>
               </div>
             )}
             
             {promo.discountType === 'package' && (
-              <div className="flex items-center text-blue-400">
+              <div className="flex items-center text-primary-400">
                 <Package className="h-3.5 w-3.5 mr-1" />
                 <span>{promo.minTickets} tickets por ${promo.packagePrice}</span>
                 {ticketPrice && (
-                  <Badge className="ml-2 bg-blue-900/50 text-blue-300 text-xs">
+                  <Badge className="ml-2 bg-primary-900/50 text-primary-300 text-xs">
                     Ahorra ${((ticketPrice * promo.minTickets) - promo.packagePrice).toFixed(2)}
                   </Badge>
                 )}

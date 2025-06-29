@@ -23,7 +23,7 @@ function Footer() {
                 height={50}
                 className='h-12 w-auto'
               />
-              <span className='ml-2 text-xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent'>Rifas Adrian</span>
+              <span className='ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Rifas Adrian</span>
             </div>
             <p className='text-gray-400 text-center md:text-left mb-6'>
               Plataforma de rifas online con los mejores premios y las mejores oportunidades para ganar.
@@ -31,7 +31,7 @@ function Footer() {
             <div className='flex space-x-4'>
               <Link
                 href='https://www.facebook.com/profile.php?id=61574174905201'
-                className='bg-black hover:bg-amber-500/10 border border-amber-500/30 hover:border-amber-500 p-2 rounded-full transition-all duration-300'
+                className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -39,7 +39,7 @@ function Footer() {
               </Link>
               <Link
                 href='https://www.instagram.com/jirvin.flores'
-                className='bg-black hover:bg-amber-500/10 border border-amber-500/30 hover:border-amber-500 p-2 rounded-full transition-all duration-300'
+                className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -47,7 +47,7 @@ function Footer() {
               </Link>
               <Link
                 href='https://wa.me/584248719024'
-                className='bg-black hover:bg-amber-500/10 border border-amber-500/30 hover:border-amber-500 p-2 rounded-full transition-all duration-300'
+                className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -55,7 +55,7 @@ function Footer() {
               </Link>
               <Link
                 href='https://www.tiktok.com/@jirvinflores'
-                className='bg-black hover:bg-amber-500/10 border border-amber-500/30 hover:border-amber-500 p-2 rounded-full transition-all duration-300'
+                className='bg-black hover:bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 p-2 rounded-full transition-all duration-300'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -66,44 +66,44 @@ function Footer() {
           
           {/* Enlaces rápidos */}
           <div>
-            <h3 className='text-amber-400 font-bold text-lg mb-4'>Enlaces Rápidos</h3>
+            <h3 className='text-primary-400 font-bold text-lg mb-4'>Enlaces Rápidos</h3>
             <ul className='space-y-2'>
               <li>
-                <Link href='/' className='text-gray-300 hover:text-amber-300 transition-colors'>Inicio</Link>
+                <Link href='/' className='text-gray-300 hover:text-primary-300 transition-colors'>Inicio</Link>
               </li>
               <li>
-                <Link href='/rifas' className='text-gray-300 hover:text-amber-300 transition-colors'>Rifas Disponibles</Link>
+                <Link href='/rifas' className='text-gray-300 hover:text-primary-300 transition-colors'>Rifas Disponibles</Link>
               </li>
               <li>
-                <Link href='/como-participar' className='text-gray-300 hover:text-amber-300 transition-colors'>Cómo Participar</Link>
+                <Link href='/como-participar' className='text-gray-300 hover:text-primary-300 transition-colors'>Cómo Participar</Link>
               </li>
               <li>
-                <Link href='/contacto' className='text-gray-300 hover:text-amber-300 transition-colors'>Contacto</Link>
+                <Link href='/contacto' className='text-gray-300 hover:text-primary-300 transition-colors'>Contacto</Link>
               </li>
               <li>
-                <Link href='/dashboard' className='text-gray-300 hover:text-amber-300 transition-colors'>Mi Cuenta</Link>
+                <Link href='/dashboard' className='text-gray-300 hover:text-primary-300 transition-colors'>Mi Cuenta</Link>
               </li>
             </ul>
           </div>
           
           {/* Contacto */}
           <div>
-            <h3 className='text-amber-400 font-bold text-lg mb-4'>Contacto</h3>
+            <h3 className='text-primary-400 font-bold text-lg mb-4'>Contacto</h3>
             <ul className='space-y-3'>
               <li className='flex items-start'>
-                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-amber-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-primary-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' />
                 </svg>
                 <span className='text-gray-300'>+58 424-871-9024</span>
               </li>
               <li className='flex items-start'>
-                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-amber-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-primary-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
                 </svg>
                 <span className='text-gray-300'>contacto@rifasadrian.com</span>
               </li>
               <li className='flex items-start'>
-                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-amber-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-primary-500 mr-2 mt-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' />
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' />
                 </svg>
@@ -118,6 +118,22 @@ function Footer() {
           <p className='text-gray-500'>
             &copy; {new Date().getFullYear()} Rifas Adrian. Todos los derechos reservados.
           </p>
+          <p className='text-gray-500 mt-2'>
+            Creado por{' '}
+            <span
+              className='text-primary-400 hover:text-primary-300 transition-colors font-medium'
+            >
+              TryDev
+            </span>
+          </p>
+          <Link 
+             href='https://try-dev-zeta.vercel.app/' 
+             target='_blank' 
+             rel='noopener noreferrer'
+             className='text-primary-400 hover:text-primary-300 transition-colors font-medium'
+            >
+              Si te interesa mi trabajo, puedes contactarme haciendo click aquí
+            </Link>
         </div>
       </div>
     </footer>

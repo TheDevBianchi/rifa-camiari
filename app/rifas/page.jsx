@@ -148,8 +148,8 @@ const RifasPage = () => {
     <div className='min-h-screen bg-black relative overflow-hidden'>
       {/* Elementos decorativos */}
       <div className='absolute inset-0 opacity-5'>
-        <div className='absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent'></div>
-        <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent'></div>
+        <div className='absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent'></div>
+        <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent'></div>
         <div className='absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]'></div>
       </div>
       
@@ -158,7 +158,7 @@ const RifasPage = () => {
         
         <main className='container mx-auto px-4 py-12'>
           <motion.h1 
-            className='text-4xl md:text-5xl font-bold text-center text-amber-500 mb-8'
+            className='text-4xl md:text-5xl font-bold text-center text-primary-500 mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -180,7 +180,7 @@ const RifasPage = () => {
                   placeholder='Buscar rifas...'
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className='w-full bg-zinc-800 border border-zinc-700 rounded-full pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                  className='w-full bg-zinc-800 border border-zinc-700 rounded-full pl-10 pr-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                 />
               </div>
               
@@ -188,7 +188,7 @@ const RifasPage = () => {
                 <select
                   value={filters.status}
                   onChange={(e) => handleFilterChange('status', e.target.value)}
-                  className='bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                  className='bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                 >
                   <option value='all'>Todas</option>
                   <option value='active'>Activas</option>
@@ -198,7 +198,7 @@ const RifasPage = () => {
                 <select
                   value={filters.sortBy}
                   onChange={(e) => handleFilterChange('sortBy', e.target.value)}
-                  className='bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                  className='bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500'
                 >
                   <option value='newest'>Más recientes</option>
                   <option value='oldest'>Más antiguas</option>
@@ -221,15 +221,15 @@ const RifasPage = () => {
           
           {loading ? (
             <div className='flex flex-col items-center justify-center py-12'>
-              <div className='w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin'></div>
+              <div className='w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin'></div>
               <p className='mt-4 text-zinc-300'>Cargando rifas...</p>
             </div>
           ) : error ? (
-            <div className='bg-red-900/30 border border-red-700 rounded-xl p-6 text-center'>
+            <div className='bg-secondary-900/30 border border-secondary-700 rounded-xl p-6 text-center'>
               <p className='text-white'>{error}</p>
               <button
                 onClick={() => window.location.reload()}
-                className='mt-4 bg-amber-500 text-black px-6 py-2 rounded-full font-medium hover:bg-amber-400 transition-colors'
+                className='mt-4 bg-primary-500 text-white px-6 py-2 rounded-full font-medium hover:bg-primary-400 transition-colors'
               >
                 Intentar nuevamente
               </button>
@@ -239,7 +239,7 @@ const RifasPage = () => {
               <p className='text-zinc-300 mb-4'>No se encontraron rifas que coincidan con tus criterios de búsqueda.</p>
               <button
                 onClick={clearFilters}
-                className='bg-amber-500 text-black px-6 py-2 rounded-full font-medium hover:bg-amber-400 transition-colors'
+                className='bg-primary-500 text-white px-6 py-2 rounded-full font-medium hover:bg-primary-400 transition-colors'
               >
                 Ver todas las rifas
               </button>
@@ -252,7 +252,7 @@ const RifasPage = () => {
                 return (
                   <motion.div
                     key={raffle.id}
-                    className='bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-colors'
+                    className='bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-primary-500/50 transition-colors'
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * (index % 6) }}
@@ -266,8 +266,8 @@ const RifasPage = () => {
                           className='object-cover'
                         />
                       ) : (
-                        <div className='absolute inset-0 bg-gradient-to-r from-amber-500/20 to-amber-700/20 flex items-center justify-center'>
-                          <Award className='h-16 w-16 text-amber-500/60' />
+                        <div className='absolute inset-0 bg-gradient-to-r from-primary-500/20 to-primary-700/20 flex items-center justify-center'>
+                          <Award className='h-16 w-16 text-primary-500/60' />
                         </div>
                       )}
                       <div className={`absolute top-3 right-3 bg-${status.color}-500/90 text-white text-sm px-3 py-1 rounded-full`}>
@@ -281,7 +281,7 @@ const RifasPage = () => {
                       
                       <div className='space-y-2 mb-4'>
                         <div className='flex items-center text-zinc-300'>
-                          <Tag className='h-4 w-4 mr-2 text-amber-500' />
+                          <Tag className='h-4 w-4 mr-2 text-primary-500' />
                           <span>Precio: </span>
                           <span className='ml-1 font-medium'>
                             <CountryPrice amount={raffle.ticketPrice || 0} />
@@ -289,7 +289,7 @@ const RifasPage = () => {
                         </div>
                         
                         <div className='flex items-center text-zinc-300'>
-                          <Calendar className='h-4 w-4 mr-2 text-amber-500' />
+                          <Calendar className='h-4 w-4 mr-2 text-primary-500' />
                           <span>Fecha de sorteo: </span>
                           <span className='ml-1 font-medium'>
                             {formatDate(raffle.endDate)}
@@ -297,7 +297,7 @@ const RifasPage = () => {
                         </div>
                         
                         <div className='flex items-center text-zinc-300'>
-                          <Clock className='h-4 w-4 mr-2 text-amber-500' />
+                          <Clock className='h-4 w-4 mr-2 text-primary-500' />
                           <span>Creada: </span>
                           <span className='ml-1 font-medium'>
                             {formatDate(raffle.createdAt)}
@@ -307,7 +307,7 @@ const RifasPage = () => {
                       
                       <Link 
                         href={`/rifa/${raffle.id}`}
-                        className='block w-full bg-amber-500 hover:bg-amber-400 text-black font-medium py-2 rounded-lg text-center transition-colors'
+                        className='block w-full bg-primary-500 hover:bg-primary-400 text-white font-medium py-2 rounded-lg text-center transition-colors'
                       >
                         Ver Detalles
                       </Link>
@@ -324,9 +324,9 @@ const RifasPage = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <h2 className='text-2xl font-bold text-amber-500 mb-2'>¿Quieres saber más sobre cómo participar?</h2>
+            <h2 className='text-2xl font-bold text-primary-500 mb-2'>¿Quieres saber más sobre cómo participar?</h2>
             <p className='text-zinc-300 mb-6 max-w-2xl mx-auto'>Visita nuestra guía detallada para aprender todo sobre el proceso de participación en nuestras rifas.</p>
-            <Link href="/como-participar" className='inline-flex items-center bg-amber-500 text-black px-6 py-3 rounded-full font-medium hover:bg-amber-400 transition-colors'>
+            <Link href="/como-participar" className='inline-flex items-center bg-primary-500 text-white px-6 py-3 rounded-full font-medium hover:bg-primary-400 transition-colors'>
               Cómo Participar
             </Link>
           </motion.div>

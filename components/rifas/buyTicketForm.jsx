@@ -146,8 +146,8 @@ const BuyTicketForm = ({ raffle, onSubmit }) => {
   if (availableTickets === 0) {
     return (
       <div className='p-6 text-center'>
-        <div className='bg-amber-500/10 border border-amber-500/20 rounded-lg p-6'>
-          <h3 className='text-xl font-bold text-amber-400 mb-2'>
+        <div className='bg-secondary-500/10 border border-secondary-500/20 rounded-lg p-6'>
+          <h3 className='text-xl font-bold text-secondary-400 mb-2'>
             Rifa Agotada
           </h3>
           <p className='text-gray-300'>
@@ -163,8 +163,8 @@ const BuyTicketForm = ({ raffle, onSubmit }) => {
       onSubmit={form.handleSubmit(handleSubmit)}
       className='space-y-6 p-5 text-gray-200'>
       {error && (
-        <div className='flex items-start gap-2 p-4 rounded-lg bg-amber-500/10 border border-amber-500/20'>
-          <AlertCircle className='w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0' />
+        <div className='flex items-start gap-2 p-4 rounded-lg bg-secondary-500/10 border border-secondary-500/20'>
+          <AlertCircle className='w-5 h-5 text-secondary-400 mt-0.5 flex-shrink-0' />
           <p className='text-sm text-gray-300'>{error}</p>
         </div>
       )}
