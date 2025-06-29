@@ -8,10 +8,31 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const adminRoutes = [
-  { icon: Home, href: "/admin", label: "Dashboard" },
-  { icon: Users, href: "/admin/users", label: "Usuarios" },
-  { icon: Gift, href: "/admin/rifas", label: "Rifas" },
-  { icon: Settings, href: "/admin/settings", label: "Configuración" },
+  {
+    icon: Home,
+    href: "/dashboard",
+    label: "Dashboard",
+  },
+  {
+    icon: Gift,
+    href: "/dashboard/rifas",
+    label: "Rifas",
+  },
+  {
+    icon: ShoppingCart,
+    href: "/dashboard/compras",
+    label: "Compras",
+  },
+  {
+    icon: BarChart,
+    href: "/dashboard/ranking",
+    label: "Ranking",
+  },
+  {
+    icon: Settings,
+    href: "/dashboard/settings",
+    label: "Configuración",
+  },
 ];
 
 export default function AdminSidebarMobile() {
