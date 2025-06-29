@@ -8,41 +8,15 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const adminRoutes = [
-  {
-    icon: Home,
-    href: "/dashboard",
-    label: "Dashboard",
-  },
-  {
-    icon: Gift,
-    href: "/dashboard/rifas",
-    label: "Rifas",
-  },
-  {
-    icon: ShoppingCart,
-    href: "/dashboard/compras",
-    label: "Compras",
-  },
-  {
-    icon: BarChart,
-    href: "/dashboard/ranking",
-    label: "Ranking",
-  },
-  {
-    icon: Settings,
-    href: "/dashboard/settings",
-    label: "Configuración",
-  },
+  { icon: Home, href: "/dashboard", label: "Dashboard" },
+  { icon: Users, href: "/dashboard/users", label: "Usuarios" },
+  { icon: Gift, href: "/dashboard/rifas", label: "Rifas" },
+  { icon: Settings, href: "/dashboard/settings", label: "Configuración" },
 ];
 
 export default function AdminSidebarMobile() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-
-  const handleSignOut = () => {
-    // Aquí iría la lógica real de logout
-    router.push("/auth/sign-in");
-  };
 
   return (
     <>
@@ -119,17 +93,6 @@ export default function AdminSidebarMobile() {
                 </Link>
               ))}
             </nav>
-            {/* Botón cerrar sesión */}
-            <div className="p-4 border-t border-primary-700">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-secondary-400 hover:text-white hover:bg-secondary-500/20"
-                onClick={handleSignOut}
-              >
-                <LogOut className="h-5 w-5 mr-2" />
-                Cerrar Sesión
-              </Button>
-            </div>
           </aside>
         </>
       )}
