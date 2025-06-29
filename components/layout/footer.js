@@ -22,6 +22,7 @@ function Footer() {
                 width={50}
                 height={50}
                 className='h-12 w-auto'
+                title='Rifa Camiari'
               />
               <span className='ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Rifa Camiari</span>
             </div>
@@ -107,6 +108,24 @@ function Footer() {
         
         {/* Copyright */}
         <div className='border-t border-gray-800 mt-12 pt-8 text-center'>
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <Image
+              src='/supergana.webp'
+              alt='Logo Super Gana'
+              width={50}
+              height={50}
+              className='h-12 w-auto rounded-md bg-white p-1'
+              title='Super Gana'
+            />
+            <Image
+              src='/loteria-tachira.webp'
+              alt='Logo Lotería del Táchira'
+              width={50}
+              height={50}
+              className='h-12 w-auto rounded-md bg-white p-1'
+              title='Lotería del Táchira'
+            />
+          </div>
           <p className='text-gray-500'>
             &copy; {new Date().getFullYear()} Rifa Camiari. Todos los derechos reservados.
           </p>
