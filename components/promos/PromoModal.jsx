@@ -130,35 +130,35 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-md bg-gray-900 border-gray-700 text-white"> {/* Adjusted max-width and styling */}
-            <DialogHeader className="mb-4"> {/* Added margin bottom */}
-                <DialogTitle className="flex items-center text-xl font-semibold"> {/* Flex for icon alignment */}
-                    {isEditing ? <Edit className="mr-2 h-5 w-5 text-blue-400" /> : <PlusCircle className="mr-2 h-5 w-5 text-green-400" />}
+        <DialogContent className="sm:max-w-md bg-primary-950 border-primary-700 text-primary-100 shadow-2xl">
+            <DialogHeader className="mb-4">
+                <DialogTitle className="flex items-center text-xl font-semibold text-primary-500">
+                    {isEditing ? <Edit className="mr-2 h-5 w-5 text-secondary-500" /> : <PlusCircle className="mr-2 h-5 w-5 text-primary-500" />}
                     {isEditing ? "Editar Promoción" : "Crear Nueva Promoción"}
                 </DialogTitle>
-            <DialogDescription className="text-gray-400">
+            <DialogDescription className="text-secondary-400">
                 {isEditing
                 ? "Modifica los detalles de la promoción existente."
                 : "Define los detalles para una nueva promoción."}
             </DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6"> {/* Increased vertical spacing */}
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* General Promotion Details */}
-                <div className="space-y-4 p-4 border border-gray-700 rounded-lg bg-gray-800/50"> {/* Grouping wrapper */}
-                     <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2"> {/* Adjusted gap */}
-                        <Label htmlFor="name" className="text-right col-span-1 text-sm text-gray-300">
+                <div className="space-y-4 p-4 border border-primary-700 rounded-lg bg-primary-900/60">
+                     <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
+                        <Label htmlFor="name" className="text-right col-span-1 text-sm text-primary-200">
                             Nombre
                         </Label>
                         <Input
                             id="name"
                             {...register('name', { required: 'El nombre es requerido' })}
-                            className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                            className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                              placeholder="Ej: Promo Verano"
                         />
-                        {errors.name && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.name.message}</p>} {/* Adjusted error styling */}
+                        {errors.name && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.name.message}</p>}
                     </div>
                     <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                        <Label htmlFor="raffleId" className="text-right col-span-1 text-sm text-gray-300">
+                        <Label htmlFor="raffleId" className="text-right col-span-1 text-sm text-primary-200">
                             Rifa
                         </Label>
                          <Controller
@@ -172,12 +172,12 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
                                 value={field.value || ''}
                                 disabled={!!raffleId && !isEditing}
                             >
-                                <SelectTrigger className="col-span-3 bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500 [&>svg]:text-gray-400">
+                                <SelectTrigger className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 focus:ring-primary-500 focus:border-primary-500 [&>svg]:text-primary-400">
                                 <SelectValue placeholder="Selecciona una rifa" />
                                 </SelectTrigger>
-                                <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                <SelectContent className="bg-primary-900 border-primary-700 text-primary-100">
                                     {raffles.map((raffle) => (
-                                        <SelectItem key={raffle.id} value={raffle.id} className="hover:bg-gray-700 focus:bg-gray-700">
+                                        <SelectItem key={raffle.id} value={raffle.id} className="hover:bg-primary-800 focus:bg-primary-800">
                                             {raffle.title}
                                         </SelectItem>
                                     ))}
@@ -185,14 +185,14 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
                             </Select>
                             )}
                         />
-                        {errors.raffleId && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.raffleId.message}</p>}
+                        {errors.raffleId && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.raffleId.message}</p>}
                     </div>
                 </div>
 
                 {/* Discount Type and Conditional Fields */}
-                <div className="space-y-4 p-4 border border-gray-700 rounded-lg bg-gray-800/50"> {/* Grouping wrapper */}
+                <div className="space-y-4 p-4 border border-primary-700 rounded-lg bg-primary-900/60">
                     <div className="space-y-2">
-                        <Label htmlFor="discountType" className="text-sm text-gray-300">
+                        <Label htmlFor="discountType" className="text-sm text-primary-200">
                             Tipo de Descuento
                         </Label>
                         <Controller
@@ -215,45 +215,45 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
                                     }}
                                     value={field.value || ''}
                                 >
-                                <SelectTrigger className="col-span-3 bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500 [&>svg]:text-gray-400">
+                                <SelectTrigger className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 focus:ring-primary-500 focus:border-primary-500 [&>svg]:text-primary-400">
                                     <SelectValue placeholder="Selecciona tipo" />
                                 </SelectTrigger>
-                                <SelectContent className="bg-gray-800 border-gray-700 text-white">
-                                    <SelectItem value="percentage" className="hover:bg-gray-700 focus:bg-gray-700"><Percent className="inline h-4 w-4 mr-2 text-yellow-400"/>Porcentaje (%)</SelectItem>
-                                    <SelectItem value="lower_cost" className="hover:bg-gray-700 focus:bg-gray-700"><ArrowDownCircle className="inline h-4 w-4 mr-2 text-red-400"/>Bajar Coste Tickets</SelectItem>
-                                    <SelectItem value="package" className="hover:bg-gray-700 focus:bg-gray-700"><Package className="inline h-4 w-4 mr-2 text-green-400"/>Paquete Boletos</SelectItem>
-                                    <SelectItem value="creator_code" className="hover:bg-gray-700 focus:bg-gray-700"><Tag className="inline h-4 w-4 mr-2 text-purple-400"/>Código de Creador</SelectItem>
+                                <SelectContent className="bg-primary-900 border-primary-700 text-primary-100">
+                                    <SelectItem value="percentage" className="hover:bg-primary-800 focus:bg-primary-800"><Percent className="inline h-4 w-4 mr-2 text-primary-400"/>Porcentaje (%)</SelectItem>
+                                    <SelectItem value="lower_cost" className="hover:bg-primary-800 focus:bg-primary-800"><ArrowDownCircle className="inline h-4 w-4 mr-2 text-secondary-400"/>Bajar Coste Tickets</SelectItem>
+                                    <SelectItem value="package" className="hover:bg-primary-800 focus:bg-primary-800"><Package className="inline h-4 w-4 mr-2 text-primary-300"/>Paquete Boletos</SelectItem>
+                                    <SelectItem value="creator_code" className="hover:bg-primary-800 focus:bg-primary-800"><Tag className="inline h-4 w-4 mr-2 text-secondary-400"/>Código de Creador</SelectItem>
                                 </SelectContent>
                                 </Select>
                             )}
                         />
-                        {errors.discountType && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.discountType.message}</p>}
+                        {errors.discountType && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.discountType.message}</p>}
                     </div>
 
                     {/* Conditional Fields Area */}
-                    <div className="space-y-4 mt-4 pl-4 border-l-2 border-blue-500/50"> {/* Indented and bordered area */}
+                    <div className="space-y-4 mt-4 pl-4 border-l-2 border-primary-500/50">
                         {discountType === 'percentage' && (
                             <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                <Label htmlFor="discountValue" className="text-right col-span-1 text-sm text-gray-300">
+                                <Label htmlFor="discountValue" className="text-right col-span-1 text-sm text-primary-200">
                                     Porcentaje (%)
                                 </Label>
                                 <Input
                                     id="discountValue" type="number" placeholder="Ej: 10"
-                                    {...register('discountValue', { /* Keep validation */
+                                    {...register('discountValue', { 
                                          required: 'El porcentaje es requerido', valueAsNumber: true,
                                          min: { value: 1, message: 'El porcentaje debe ser positivo' },
                                          max: { value: 99, message: 'El porcentaje debe ser menor a 100' }
                                      })}
-                                    className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                    className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                 />
-                                {errors.discountValue && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.discountValue.message}</p>}
+                                {errors.discountValue && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.discountValue.message}</p>}
                             </div>
                         )}
                         
                         {discountType === 'creator_code' && (
                             <>
                                 <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                    <Label htmlFor="creatorCode" className="text-right col-span-1 text-sm text-gray-300">
+                                    <Label htmlFor="creatorCode" className="text-right col-span-1 text-sm text-primary-200">
                                         Código
                                     </Label>
                                     <Input
@@ -267,13 +267,13 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
                                                 message: 'Solo letras, números, guiones y guiones bajos'
                                             }
                                         })}
-                                        className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                        className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                     />
-                                    {errors.creatorCode && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.creatorCode.message}</p>}
+                                    {errors.creatorCode && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.creatorCode.message}</p>}
                                 </div>
                                 
                                 <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                    <Label htmlFor="discountValue" className="text-right col-span-1 text-sm text-gray-300">
+                                    <Label htmlFor="discountValue" className="text-right col-span-1 text-sm text-primary-200">
                                         Descuento (%)
                                     </Label>
                                     <Input
@@ -284,72 +284,72 @@ export function PromoModal({ isOpen, onClose, raffleId, promotion, onPromotionSa
                                             min: { value: 1, message: 'El porcentaje debe ser positivo' },
                                             max: { value: 99, message: 'El porcentaje debe ser menor a 100' }
                                         })}
-                                        className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                        className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                     />
-                                    {errors.discountValue && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.discountValue.message}</p>}
+                                    {errors.discountValue && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.discountValue.message}</p>}
                                 </div>
                             </>
                         )}
 
                         {discountType === 'lower_cost' && (
                              <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                <Label htmlFor="newTicketPrice" className="text-right col-span-1 text-sm text-gray-300">
+                                <Label htmlFor="newTicketPrice" className="text-right col-span-1 text-sm text-primary-200">
                                     Nuevo Coste ($)
                                 </Label>
                                 <Input
                                     id="newTicketPrice" type="number" step="0.01" placeholder="Ej: 5.00"
-                                    {...register('newTicketPrice', { /* Keep validation */
+                                    {...register('newTicketPrice', { 
                                         required: 'El nuevo coste es requerido', valueAsNumber: true,
                                         min: { value: 0.01, message: 'El coste debe ser positivo' }
                                     })}
-                                    className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                    className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                 />
-                                {errors.newTicketPrice && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.newTicketPrice.message}</p>}
+                                {errors.newTicketPrice && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.newTicketPrice.message}</p>}
                             </div>
                         )}
 
                         {discountType === 'package' && (
                             <>
                                  <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                    <Label htmlFor="minTickets" className="text-right col-span-1 text-sm text-gray-300">
+                                    <Label htmlFor="minTickets" className="text-right col-span-1 text-sm text-primary-200">
                                         Tickets Mín.
                                     </Label>
                                     <Input
                                         id="minTickets" type="number" placeholder="Ej: 5"
-                                        {...register('minTickets', { /* Keep validation */
+                                        {...register('minTickets', { 
                                             required: 'La cantidad mínima es requerida', valueAsNumber: true,
                                             min: { value: 2, message: 'Debe ser al menos 2 tickets' }
                                         })}
-                                        className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                        className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                     />
-                                    {errors.minTickets && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.minTickets.message}</p>}
+                                    {errors.minTickets && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.minTickets.message}</p>}
                                 </div>
                                  <div className="grid grid-cols-4 items-center gap-x-4 gap-y-2">
-                                    <Label htmlFor="packagePrice" className="text-right col-span-1 text-sm text-gray-300">
+                                    <Label htmlFor="packagePrice" className="text-right col-span-1 text-sm text-primary-200">
                                         Precio Paquete ($)
                                     </Label>
                                     <Input
                                         id="packagePrice" type="number" step="0.01" placeholder="Ej: 20.00"
-                                        {...register('packagePrice', { /* Keep validation */
+                                        {...register('packagePrice', { 
                                             required: 'El precio del paquete es requerido', valueAsNumber: true,
                                             min: { value: 0.01, message: 'El precio debe ser positivo' }
                                         })}
-                                        className="col-span-3 bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500"
+                                        className="col-span-3 bg-primary-950 border-primary-700 text-primary-100 placeholder-primary-400 focus:ring-primary-500 focus:border-primary-500"
                                     />
-                                    {errors.packagePrice && <p className="col-span-full text-red-400 text-xs mt-1 text-right">{errors.packagePrice.message}</p>}
+                                    {errors.packagePrice && <p className="col-span-full text-secondary-400 text-xs mt-1 text-right">{errors.packagePrice.message}</p>}
                                 </div>
                             </>
                         )}
                     </div>
                 </div>
 
-                <DialogFooter className="pt-4"> {/* Added padding top */}
-                    <Button type='button' variant='outline' onClick={onClose} className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white" disabled={loading}>
+                <DialogFooter className="pt-4">
+                    <Button type='button' variant='outline' onClick={onClose} className="border-secondary-500 text-secondary-500 hover:bg-secondary-500/10 hover:text-white" disabled={loading}>
                         Cancelar
                     </Button>
                     <Button 
                         type="submit" 
-                        className={`${isEditing ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white`}
+                        className={`${isEditing ? 'bg-secondary-500 hover:bg-secondary-600' : 'bg-primary-500 hover:bg-primary-600'} text-white font-bold`}
                         disabled={loading}
                     >
                         {loading ? (

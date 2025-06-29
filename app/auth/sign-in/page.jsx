@@ -70,7 +70,7 @@ export default function SignInPage () {
   // Solo mostrar el loader cuando estamos en el estado inicial de carga
   if (loading) {
     return (
-      <div className='min-h-screen bg-gray-900 flex items-center justify-center'>
+      <div className='min-h-screen bg-gradient-to-br from-primary-900 to-secondary-900 flex items-center justify-center'>
         <Loader2 className='w-8 h-8 animate-spin text-primary' />
       </div>
     )
@@ -78,7 +78,7 @@ export default function SignInPage () {
 
   return (
     <div
-      className='min-h-screen bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4'
+      className='min-h-screen bg-gradient-to-br from-primary-900 to-secondary-900 flex items-center justify-center p-4'
       role='main'
       aria-labelledby='signin-title'
     >
@@ -126,7 +126,7 @@ export default function SignInPage () {
               {errors.email && (
                 <p
                   id='email-error'
-                  className='mt-2 text-sm text-red-400'
+                  className='mt-2 text-sm text-secondary-400'
                   role='alert'
                 >
                   {errors.email.message}
@@ -165,7 +165,7 @@ export default function SignInPage () {
               {errors.password && (
                 <p
                   id='password-error'
-                  className='mt-2 text-sm text-red-400'
+                  className='mt-2 text-sm text-secondary-400'
                   role='alert'
                 >
                   {errors.password.message}
@@ -177,10 +177,10 @@ export default function SignInPage () {
               type='submit'
               disabled={isSubmitting}
               aria-busy={isSubmitting}
-              className='w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-sm font-semibold
-                text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 
+              className='w-full flex justify-center py-3 px-4 border border-primary-500 rounded-xl text-sm font-semibold
+                text-white bg-primary-500 hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 
                 focus:ring-primary focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed
-                transition-all duration-200 shadow-lg shadow-primary/25'
+                transition-all duration-200 shadow-lg shadow-primary-500/25'
             >
               {isSubmitting ? (
                 <>

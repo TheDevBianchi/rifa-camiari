@@ -21,9 +21,9 @@ export function PurchaseCard ({ purchase, loadingStates, onApprove, onReject }) 
     setPaymentMethodName(method ? method.name : purchase.paymentMethod)
   }, [purchase.paymentMethod, paymentMethods, getPaymentMethods])
   return (
-    <div className='bg-gradient-to-br from-black to-gray-900 rounded-lg p-5 border border-amber-500/10 hover:border-amber-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)]'>
+    <div className='bg-gradient-to-br from-black to-gray-900 rounded-lg p-5 border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]'>
       <div className='mb-4'>
-        <h3 className='font-bold text-lg bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent mb-1'>
+        <h3 className='font-bold text-lg bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent mb-1'>
           {purchase.raffleName}
         </h3>
         <p className='text-gray-400 text-sm flex items-center gap-1'>
@@ -32,47 +32,47 @@ export function PurchaseCard ({ purchase, loadingStates, onApprove, onReject }) 
         </p>
       </div>
 
-      <div className='space-y-3 text-gray-300 bg-black/40 p-4 rounded-lg border border-amber-500/10 mb-4'>
+      <div className='space-y-3 text-gray-300 bg-black/40 p-4 rounded-lg border border-primary-500/10 mb-4'>
         <PurchaseInfo 
-          icon={<User className='w-4 h-4 text-amber-400' />}
+          icon={<User className='w-4 h-4 text-primary-400' />}
           label='Comprador' 
           value={purchase.name} 
         />
         <PurchaseInfo 
-          icon={<Mail className='w-4 h-4 text-amber-400' />}
+          icon={<Mail className='w-4 h-4 text-primary-400' />}
           label='Email' 
           value={purchase.email} 
         />
         <PurchaseInfo 
-          icon={<Phone className='w-4 h-4 text-amber-400' />}
+          icon={<Phone className='w-4 h-4 text-primary-400' />}
           label='Teléfono' 
           value={purchase.phone} 
         />
         <div className='border-t border-gray-800 my-2'></div>
         <PurchaseInfo 
-          icon={<CreditCard className='w-4 h-4 text-amber-400' />}
+          icon={<CreditCard className='w-4 h-4 text-primary-400' />}
           label='Método de pago' 
           value={paymentMethodName} 
         />
         <PurchaseInfo 
-          icon={<Receipt className='w-4 h-4 text-amber-400' />}
+          icon={<Receipt className='w-4 h-4 text-primary-400' />}
           label='Referencia' 
           value={purchase.paymentReference} 
         />
         <div className='border-t border-gray-800 my-2'></div>
         <PurchaseInfo
-          icon={<Ticket className='w-4 h-4 text-amber-400' />}
+          icon={<Ticket className='w-4 h-4 text-primary-400' />}
           label='Tickets'
           value={`${purchase.selectedTickets.length} tickets`}
           valueClass='font-medium'
         />
         <PurchaseInfo
-          icon={<DollarSign className='w-4 h-4 text-amber-400' />}
+          icon={<DollarSign className='w-4 h-4 text-primary-400' />}
           label='Total'
           customValue={
             <CountryPrice 
               amount={purchase.selectedTickets.length * purchase.rafflePrice} 
-              className="font-semibold text-amber-400"
+              className="font-semibold text-primary-400"
             />
           }
         />

@@ -63,7 +63,7 @@ function ActiveUsers({ userInfo }) {
 
   return (
     <div className='bg-gray-800 rounded-lg p-6 shadow-lg'>
-      <h2 className='text-2xl font-bold text-primary mb-4'>Usuarios Activos</h2>
+      <h2 className='text-2xl font-bold text-primary-500 mb-4'>Usuarios Activos</h2>
       {currentUser && (
         <div className='mb-4'>
           <p>Usuario Conectado: {currentUser.email}</p>
@@ -88,7 +88,7 @@ function ActiveUsers({ userInfo }) {
               <TableCell>
                 {/* Add a button to save IP address */}
                 <button
-                  className='px-2 py-1 text-sm text-white bg-primary rounded'
+                  className='px-2 py-1 text-sm text-white bg-primary-500 rounded hover:bg-primary-600 transition-colors'
                   onClick={() => handleSaveIP(user.ip)}>
                   Guardar
                 </button>

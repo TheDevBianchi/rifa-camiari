@@ -24,7 +24,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { CheckCircle, AlertCircle } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 
 export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPurchaseUpdate }) => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -78,7 +78,7 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
       buttons.push(
         <PaginationItem key={i}>
           <PaginationLink
-            className={`w-10 h-10 ${currentPage === i ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent hover:text-accent-foreground'}`}
+            className={`w-10 h-10 ${currentPage === i ? 'bg-primary-500 text-white hover:bg-primary-600' : 'hover:bg-gray-700 hover:text-white'}`}
             onClick={() => setCurrentPage(i)}
             isActive={currentPage === i}
           >
@@ -93,36 +93,57 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
 
   return (
     <div className="space-y-4">
-      <div className="border rounded-md">
+      <div className="border border-gray-700 rounded-md bg-gray-900/50">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead>Fecha</TableHead>
-              <TableHead>Comprador</TableHead>
-              <TableHead>Rifa</TableHead>
-              <TableHead>Tickets</TableHead>
-              <TableHead>Acciones</TableHead>
+            <TableRow className="border-gray-700">
+              <TableHead className="text-primary-400 font-semibold">Fecha</TableHead>
+              <TableHead className="text-primary-400 font-semibold">Comprador</TableHead>
+              <TableHead className="text-primary-400 font-semibold">Contacto</TableHead>
+              <TableHead className="text-primary-400 font-semibold">Rifa</TableHead>
+              <TableHead className="text-primary-400 font-semibold">Tickets</TableHead>
+              <TableHead className="text-primary-400 font-semibold">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {currentPurchases?.map((purchase) => (
-              <TableRow key={purchase.id}>
-                <TableCell>
+              <TableRow key={purchase.id} className="border-gray-700 hover:bg-gray-800/50">
+                <TableCell className="text-gray-300 text-sm">
                   {formatDate(purchase.purchaseDate || purchase.createdAt)}
                 </TableCell>
-                <TableCell>{purchase.name}</TableCell>
-                <TableCell>{purchase.raffleName}</TableCell>
+                <TableCell>
+                  <div className="space-y-1">
+                    <div className="font-medium text-white">{purchase.name}</div>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                      <Mail className="w-3 h-3 text-primary-400" />
+                      {purchase.email}
+                    </div>
+                    {purchase.phone && (
+                      <div className="flex items-center gap-2 text-sm text-gray-300">
+                        <Phone className="w-3 h-3 text-primary-400" />
+                        {purchase.phone}
+                      </div>
+                    )}
+                  </div>
+                </TableCell>
+                <TableCell className="text-gray-300">
+                  {purchase.raffleName}
+                </TableCell>
                 <TableCell>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
-                        <span className="cursor-pointer underline">
+                        <span className="cursor-pointer underline text-primary-400 hover:text-primary-300">
                           {purchase.selectedTickets.length} tickets
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="max-w-xs text-wrap">
-                          Números: {purchase.selectedTickets.sort((a, b) => a - b).join(', ')}
+                      <TooltipContent className="bg-gray-800 border-gray-700">
+                        <p className="max-w-xs text-wrap text-white">
+                          <strong>Números:</strong> {purchase.selectedTickets.sort((a, b) => a - b).join(', ')}
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -148,7 +169,7 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
           <PaginationContent className="flex gap-2">
             <PaginationItem>
               <PaginationPrevious 
-                className="h-10 px-4 py-2 hover:bg-accent hover:text-accent-foreground"
+                className="h-10 px-4 py-2 hover:bg-gray-700 hover:text-white border-gray-700 text-gray-300"
                 onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
               />
@@ -158,7 +179,7 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
               <>
                 <PaginationItem>
                   <PaginationLink
-                    className="w-10 h-10 hover:bg-accent hover:text-accent-foreground"
+                    className="w-10 h-10 hover:bg-gray-700 hover:text-white border-gray-700 text-gray-300"
                     onClick={() => setCurrentPage(1)}
                   >
                     1
@@ -166,7 +187,7 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
                 </PaginationItem>
                 {currentPage > 4 && (
                   <PaginationItem>
-                    <span className="w-10 h-10 flex items-center justify-center">
+                    <span className="w-10 h-10 flex items-center justify-center text-gray-400">
                       ...
                     </span>
                   </PaginationItem>
@@ -180,14 +201,14 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
               <>
                 {currentPage < totalPages - 3 && (
                   <PaginationItem>
-                    <span className="w-10 h-10 flex items-center justify-center">
+                    <span className="w-10 h-10 flex items-center justify-center text-gray-400">
                       ...
                     </span>
                   </PaginationItem>
                 )}
                 <PaginationItem>
                   <PaginationLink
-                    className="w-10 h-10 hover:bg-accent hover:text-accent-foreground"
+                    className="w-10 h-10 hover:bg-gray-700 hover:text-white border-gray-700 text-gray-300"
                     onClick={() => setCurrentPage(totalPages)}
                   >
                     {totalPages}
@@ -198,7 +219,7 @@ export const PurchaseTable = memo(({ purchases, isLoading, selectedRaffle, onPur
 
             <PaginationItem>
               <PaginationNext 
-                className="h-10 px-4 py-2 hover:bg-accent hover:text-accent-foreground"
+                className="h-10 px-4 py-2 hover:bg-gray-700 hover:text-white border-gray-700 text-gray-300"
                 onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
               />

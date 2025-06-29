@@ -13,10 +13,10 @@ export function UserInfoDialog({ open, onOpenChange, user, index }) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className='sm:max-w-[425px] bg-black border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]'>
+      <DialogContent className='sm:max-w-[425px] bg-black border border-primary-500/20 shadow-[0_0_15px_rgba(140,82,255,0.1)]'>
         <DialogHeader>
-          <DialogTitle className='text-amber-500 flex items-center gap-2'>
-            <Ticket className='w-5 h-5 text-amber-500' />
+          <DialogTitle className='text-primary-400 flex items-center gap-2'>
+            <Ticket className='w-5 h-5 text-primary-400' />
             Información del ticket #{index}
           </DialogTitle>
         </DialogHeader>
@@ -27,6 +27,8 @@ export function UserInfoDialog({ open, onOpenChange, user, index }) {
             label='Teléfono'
             value={user.phone}
             isSensitive={true}
+            linkText={`https://wa.me/${user.phone}`}
+            isLink={true}
           />
           <UserInfoField
             label='Fecha de compra'

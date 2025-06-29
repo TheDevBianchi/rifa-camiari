@@ -1,5 +1,6 @@
 import { RaffleDetails } from './raffle-details'
 import RaffleForm from './buyTicketForm'
+import { UserRankingTop10 } from '@/components/dashboard/UserRanking'
 
 export function RaffleContent ({ raffle, onSubmit }) {
   return (
@@ -17,6 +18,8 @@ export function RaffleContent ({ raffle, onSubmit }) {
         <div className='grid grid-cols-1 gap-8'>
           <div className='lg:col-span-2'>
             <RaffleDetails raffle={raffle} />
+            {/* Ranking del 10 al 1 */}
+            {raffle?.id && <UserRankingTop10 raffleId={raffle.id} />}
           </div>
           <div className='lg:col-span-1 w-full'>
             <div className='bg-[#111111] rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)] overflow-hidden sticky top-24'>

@@ -71,10 +71,10 @@ function CreateRaffle ({ modal, onClose }) {
   }
 
   return (
-    <div className='fixed inset-0 overflow-y-auto bg-black/80 backdrop-blur-sm z-50'>
+    <div className='fixed inset-0 overflow-y-auto bg-primary-950/90 backdrop-blur-sm z-50'>
       <div className='min-h-screen px-4 flex items-center justify-center'>
-        <Card className='w-full max-w-2xl bg-black/60 backdrop-blur-xl border border-primary/20 shadow-[0_0_30px_rgba(140,82,255,0.1)]'>
-          <CardHeader className='border-b border-primary/20 sticky top-0 bg-black/60 backdrop-blur-xl z-10'>
+        <Card className='w-full max-w-2xl bg-primary-950/90 backdrop-blur-xl border border-primary-700 shadow-2xl'>
+          <CardHeader className='border-b border-primary-700 sticky top-0 bg-primary-950/80 backdrop-blur-xl z-10'>
             <div className='flex items-center justify-between'>
               <CardTitle className='text-2xl font-bold bg-gradient-to-r from-primary-400 via-secondary-400 to-primary-400 bg-clip-text text-transparent'>
                 Crear Nueva Rifa
@@ -83,7 +83,7 @@ function CreateRaffle ({ modal, onClose }) {
                 variant='ghost'
                 size='icon'
                 onClick={onClose}
-                className='text-gray-400 hover:text-primary hover:bg-primary/20 transition-colors'
+                className='text-primary-400 hover:text-primary-500 hover:bg-primary-500/10 transition-colors'
               >
                 <XIcon className='h-5 w-5' />
               </Button>
@@ -94,7 +94,7 @@ function CreateRaffle ({ modal, onClose }) {
             <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
               <div className='grid gap-6 md:grid-cols-2'>
                 {/* Información básica */}
-                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
+                <div className='space-y-4 bg-primary-900/60 p-6 rounded-xl border border-primary-700 hover:border-primary-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
                   <h3 className='text-xl font-bold text-primary flex items-center gap-2'>
                     <FileText className='w-5 h-5 text-primary' />
                     Información Básica
@@ -102,7 +102,7 @@ function CreateRaffle ({ modal, onClose }) {
 
                   <div className='space-y-4'>
                     <div className='space-y-2'>
-                      <Label htmlFor='title' className='text-gray-200'>
+                      <Label htmlFor='title' className='text-primary-200'>
                         Título de la Rifa
                       </Label>
                       <Controller
@@ -114,7 +114,7 @@ function CreateRaffle ({ modal, onClose }) {
                               {...field}
                               id='title'
                               placeholder='Ej: iPhone 15 Pro Max'
-                              className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
+                              className='bg-primary-950 border-primary-700 focus:border-primary-500 text-primary-100 placeholder-primary-400 transition-colors'
                             />
                             {errors.title && (
                               <p className='mt-1 text-sm text-secondary-400'>
@@ -127,7 +127,7 @@ function CreateRaffle ({ modal, onClose }) {
                     </div>
                     <div className='grid grid-cols-2 gap-4'>
                       <div className='space-y-2'>
-                        <Label htmlFor='price' className='text-gray-200'>
+                        <Label htmlFor='price' className='text-primary-200'>
                           <div className='flex items-center gap-2'>
                             <DollarSign className='w-4 h-4 text-primary' />
                             Precio
@@ -143,7 +143,7 @@ function CreateRaffle ({ modal, onClose }) {
                                 type='number'
                                 step='0.01'
                                 placeholder='0.00'
-                                className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
+                                className='bg-primary-950 border-primary-700 focus:border-primary-500 text-primary-100 placeholder-primary-400 transition-colors'
                               />
                               {errors.price && (
                                 <p className='mt-1 text-sm text-secondary-400'>
@@ -155,7 +155,7 @@ function CreateRaffle ({ modal, onClose }) {
                         />
                       </div>
                       <div className='space-y-2'>
-                        <Label htmlFor='totalTickets' className='text-gray-200'>
+                        <Label htmlFor='totalTickets' className='text-primary-200'>
                           <div className='flex items-center gap-2'>
                             <Hash className='w-4 h-4 text-primary' />
                             Total Tickets
@@ -170,7 +170,7 @@ function CreateRaffle ({ modal, onClose }) {
                                 {...field}
                                 type='number'
                                 placeholder='100'
-                                className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
+                                className='bg-primary-950 border-primary-700 focus:border-primary-500 text-primary-100 placeholder-primary-400 transition-colors'
                               />
                             </div>
                           )}
@@ -178,7 +178,7 @@ function CreateRaffle ({ modal, onClose }) {
                       </div>
                     </div>
                     <div className='space-y-2 w-full'>
-                      <Label htmlFor='minTickets' className='text-gray-200'>
+                      <Label htmlFor='minTickets' className='text-primary-200'>
                         <div className='flex items-center gap-2'>
                           <Hash className='w-4 h-4 text-primary' />
                           Tickets Minimos
@@ -193,7 +193,7 @@ function CreateRaffle ({ modal, onClose }) {
                               {...field}
                               type='number'
                               placeholder='2'
-                              className='bg-black/50 border-gray-700/50 focus:border-primary/50 transition-colors'
+                              className='bg-primary-950 border-primary-700 focus:border-primary-500 text-primary-100 placeholder-primary-400 transition-colors'
                             />
                           </div>
                         )}
@@ -210,18 +210,18 @@ function CreateRaffle ({ modal, onClose }) {
                               id='randomTickets'
                               checked={field.value}
                               onCheckedChange={field.onChange}
-                              className='bg-black/50 border-gray-700/50 data-[state=checked]:bg-primary data-[state=checked]:border-primary'
+                              className='bg-primary-950 border-primary-700 data-[state=checked]:bg-primary data-[state=checked]:border-primary'
                             />
                           )}
                         />
                         <div className='space-y-1'>
                           <Label
                             htmlFor='randomTickets'
-                            className='text-sm font-medium text-gray-200'
+                            className='text-sm font-medium text-primary-200'
                           >
                             Tickets Aleatorios
                           </Label>
-                          <p className='text-xs text-gray-400'>
+                          <p className='text-xs text-primary-400'>
                             Si está activado, los tickets se asignarán de forma
                             aleatoria
                           </p>
@@ -232,7 +232,7 @@ function CreateRaffle ({ modal, onClose }) {
                 </div>
 
                 {/* Descripción e Imágenes */}
-                <div className='space-y-4 bg-black/40 p-6 rounded-xl border border-secondary/10 hover:border-secondary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,87,87,0.15)]'>
+                <div className='space-y-4 bg-secondary-900/60 p-6 rounded-xl border border-secondary-700 hover:border-secondary-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,87,87,0.15)]'>
                   <h3 className='text-xl font-bold text-secondary flex items-center gap-2'>
                     <ImageIcon className='w-5 h-5 text-secondary' />
                     Multimedia
@@ -240,7 +240,7 @@ function CreateRaffle ({ modal, onClose }) {
 
                   <div className='space-y-4'>
                     <div className='space-y-2'>
-                      <Label htmlFor='description' className='text-gray-200'>
+                      <Label htmlFor='description' className='text-secondary-200'>
                         Descripción
                       </Label>
                       <Controller
@@ -251,7 +251,7 @@ function CreateRaffle ({ modal, onClose }) {
                             <Textarea
                               {...field}
                               placeholder='Describe los detalles de la rifa...'
-                              className='bg-black/50 border-gray-700/50 focus:border-secondary/50 transition-colors min-h-[120px]'
+                              className='bg-secondary-950 border-secondary-700 focus:border-secondary-500 text-secondary-100 placeholder-secondary-400 transition-colors min-h-[120px]'
                             />
                           </div>
                         )}
@@ -259,16 +259,16 @@ function CreateRaffle ({ modal, onClose }) {
                     </div>
 
                     <div className='space-y-2'>
-                      <Label className='text-gray-200'>Imágenes</Label>
+                      <Label className='text-secondary-200'>Imágenes</Label>
                       <Controller
                         name='images'
                         control={control}
                         render={({ field }) => (
                           <div className='space-y-4'>
-                            <div className='border-2 border-dashed border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors'>
+                            <div className='border-2 border-dashed border-secondary-700 rounded-lg p-4 hover:border-secondary-500 transition-colors'>
                               <label className='flex flex-col items-center cursor-pointer'>
-                                <PlusIcon className='w-8 h-8 text-gray-400' />
-                                <span className='mt-2 text-sm text-gray-400'>
+                                <PlusIcon className='w-8 h-8 text-secondary-400' />
+                                <span className='mt-2 text-sm text-secondary-400'>
                                   Arrastra imágenes o haz clic para seleccionar
                                 </span>
                                 <input
@@ -328,7 +328,7 @@ function CreateRaffle ({ modal, onClose }) {
               </div>
 
               {/* Fechas y Opciones */}
-              <div className='bg-black/40 p-6 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
+              <div className='bg-primary-900/60 p-6 rounded-xl border border-primary-700 hover:border-primary-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.15)]'>
                 <h3 className='text-xl font-bold text-primary flex items-center gap-2 mb-4'>
                   <Clock className='w-5 h-5 text-primary' />
                   Fechas
@@ -336,7 +336,7 @@ function CreateRaffle ({ modal, onClose }) {
 
                 <div className='grid gap-6 md:grid-cols-2'>
                   <div className='space-y-4'>
-                    <Label className='text-gray-200'>Fechas de Inicio</Label>
+                    <Label className='text-primary-200'>Fechas de Inicio</Label>
                     <div className='grid grid-cols-2 gap-4'>
                       <Controller
                         name='startDate'
@@ -348,7 +348,7 @@ function CreateRaffle ({ modal, onClose }) {
                             showTimeSelect
                             dateFormat='Pp'
                             placeholderText='Fecha inicio'
-                            className='w-full bg-gray-800 border-gray-700/50 rounded-md px-3 py-2 text-sm text-white'
+                            className='w-full bg-primary-950 border-primary-700 rounded-md px-3 py-2 text-sm text-primary-100'
                           />
                         )}
                       />
@@ -357,11 +357,11 @@ function CreateRaffle ({ modal, onClose }) {
                 </div>
               </div>
 
-              <div className='flex justify-end pt-4 border-t border-primary/20'>
+              <div className='flex justify-end pt-4 border-t border-primary-700'>
                 <Button
                   type='submit'
                   disabled={isSubmitting}
-                  className='min-w-[200px] bg-primary hover:bg-primary/90 text-white shadow-[0_0_15px_rgba(140,82,255,0.2)]'
+                  className='min-w-[200px] bg-primary-500 hover:bg-primary-600 text-white shadow-[0_0_15px_rgba(140,82,255,0.2)] font-bold'
                 >
                   {isSubmitting ? (
                     <div className='flex items-center gap-2'>

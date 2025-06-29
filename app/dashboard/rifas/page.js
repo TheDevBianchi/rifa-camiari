@@ -19,7 +19,7 @@ function Page () {
       {/* Header Section */}
       <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 lg:gap-0'>
         <div>
-          <h1 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent'>
+          <h1 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>
             Mis Rifas
           </h1>
           <p className='text-gray-400 mt-1 text-sm md:text-base'>
@@ -28,7 +28,7 @@ function Page () {
         </div>
         <Button
           onClick={() => setIsModalOpen(true)}
-          className='w-full md:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center md:justify-start gap-2 shadow-lg shadow-amber-500/25'
+          className='w-full md:w-auto bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center md:justify-start gap-2 shadow-lg shadow-primary-500/25'
         >
           <Plus className='w-4 h-4 md:w-5 md:h-5' />
           Crear Nueva Rifa
@@ -38,7 +38,7 @@ function Page () {
       {/* Loading State */}
       {loading && (
         <div className='flex flex-col items-center justify-center py-8 md:py-12'>
-          <Loader2 className='w-8 h-8 md:w-10 md:h-10 animate-spin text-amber-500' />
+          <Loader2 className='w-8 h-8 md:w-10 md:h-10 animate-spin text-primary-500' />
           <p className='text-gray-400 mt-4 text-sm md:text-base'>
             Cargando tus rifas...
           </p>
@@ -47,12 +47,12 @@ function Page () {
 
       {/* Error State */}
       {error && (
-        <div className='bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 md:p-4 text-center'>
-          <p className='text-amber-400 text-sm md:text-base'>{error}</p>
+        <div className='bg-primary-500/10 border border-primary-500/20 rounded-lg p-3 md:p-4 text-center'>
+          <p className='text-primary-400 text-sm md:text-base'>{error}</p>
           <Button
             onClick={getRaffles}
             variant='outline'
-            className='mt-2 border-amber-500/30 text-amber-400 hover:text-amber-300 hover:bg-amber-500/10 text-sm md:text-base transition-all duration-300'
+            className='mt-2 border-primary-500/30 text-primary-400 hover:text-primary-300 hover:bg-primary-500/10 text-sm md:text-base transition-all duration-300'
           >
             Intentar nuevamente
           </Button>
@@ -61,10 +61,10 @@ function Page () {
 
       {/* Empty State */}
       {!loading && !error && raffles.length === 0 && (
-        <div className='text-center py-8 md:py-12 bg-black/50 rounded-lg border border-amber-500/20 px-4 shadow-[0_0_15px_rgba(245,158,11,0.05)]'>
+        <div className='text-center py-8 md:py-12 bg-black/50 rounded-lg border border-primary-500/20 px-4 shadow-[0_0_15px_rgba(245,158,11,0.05)]'>
           <div className='max-w-md mx-auto'>
-            <Gift className='w-10 h-10 md:w-12 md:h-12 text-amber-500/70 mx-auto mb-3 md:mb-4' />
-            <h3 className='text-lg md:text-xl font-semibold text-amber-300 mb-2'>
+            <Gift className='w-10 h-10 md:w-12 md:h-12 text-primary-500/70 mx-auto mb-3 md:mb-4' />
+            <h3 className='text-lg md:text-xl font-semibold text-primary-300 mb-2'>
               No hay rifas creadas
             </h3>
             <p className='text-gray-400 mb-4 text-sm md:text-base'>
@@ -72,7 +72,7 @@ function Page () {
             </p>
             <Button
               onClick={() => setIsModalOpen(true)}
-              className='w-full md:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black transition-all duration-300'
+              className='w-full md:w-auto bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black transition-all duration-300'
             >
               Crear mi primera rifa
             </Button>
@@ -85,7 +85,7 @@ function Page () {
 
       {/* Raffle List */}
       {!loading && !error && raffles.length > 0 && (
-        <div className='bg-black/60 rounded-lg border border-amber-500/20 p-3 md:p-6 shadow-[0_0_15px_rgba(245,158,11,0.05)]'>
+        <div className='bg-black/60 rounded-lg border border-primary-500/20 p-3 md:p-6 shadow-[0_0_15px_rgba(245,158,11,0.05)]'>
           <RaffleList raffles={raffles} />
         </div>
       )}

@@ -160,7 +160,7 @@ export default function PromosPage () {
       case 'lower_cost':
         return (
           <div className="flex items-center">
-            <ArrowDownCircle className="h-4 w-4 mr-2 text-red-400" />
+            <ArrowDownCircle className="h-4 w-4 mr-2 text-secondary-400" />
             <span>Precio reducido: ${promo.newTicketPrice}</span>
           </div>
         );
@@ -188,13 +188,13 @@ export default function PromosPage () {
               <Settings className='h-5 w-5' />
             </Link>
             <span className='text-gray-400'>/</span>
-            <h1 className='text-2xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent'>Promociones</h1>
+            <h1 className='text-2xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Promociones</h1>
           </div>
           <p className='text-gray-400 mt-1 text-sm'>Gestiona las promociones para tus rifas</p>
         </div>
         <Button 
           onClick={() => handleOpenCreateModal()}
-          className='bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black transition-all duration-300'
+          className='bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white transition-all duration-300'
         >
           <PlusCircle className='h-4 w-4 mr-2' />
           Nueva Promoción
@@ -203,7 +203,7 @@ export default function PromosPage () {
 
       {loading ? (
         <div className='flex flex-col items-center justify-center py-12'>
-          <Loader2 className='w-10 h-10 animate-spin text-amber-500' />
+          <Loader2 className='w-10 h-10 animate-spin text-primary-500' />
           <p className='text-gray-400 mt-4'>Cargando promociones...</p>
         </div>
       ) : (
@@ -212,13 +212,13 @@ export default function PromosPage () {
             const rafflePromotions = getPromotionsByRaffle(raffle.id);
             
             return (
-              <div key={raffle.id} className='bg-black/60 border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.05)] hover:shadow-[0_0_20px_rgba(245,158,11,0.1)] transition-all duration-300 rounded-xl overflow-hidden'>
-                <div className='bg-gradient-to-r from-amber-950/50 to-black p-4 flex justify-between items-center'>
-                  <h2 className='text-xl font-semibold text-amber-300'>{raffle.title}</h2>
+              <div key={raffle.id} className='bg-black/60 border border-primary-500/20 shadow-[0_0_15px_rgba(140,82,255,0.05)] hover:shadow-[0_0_20px_rgba(140,82,255,0.1)] transition-all duration-300 rounded-xl overflow-hidden'>
+                <div className='bg-gradient-to-r from-primary-950/50 to-black p-4 flex justify-between items-center'>
+                  <h2 className='text-xl font-semibold text-primary-300'>{raffle.title}</h2>
                   <Button 
                     onClick={() => handleOpenCreateModal(raffle.id)} 
                     size='sm'
-                    className='border-amber-500/30 text-amber-400 hover:text-amber-300 hover:bg-amber-500/10 transition-all duration-300'
+                    className='border-primary-500/30 text-primary-400 hover:text-primary-300 hover:bg-primary-500/10 transition-all duration-300'
                     variant='outline'
                     disabled={isProcessing}
                   >
@@ -231,7 +231,7 @@ export default function PromosPage () {
                   {rafflePromotions.length > 0 ? (
                     <div className='space-y-3'>
                       {rafflePromotions.map(promo => (
-                        <div key={promo.id} className='flex justify-between items-center p-4 bg-gray-900/60 rounded-lg border border-gray-800 hover:border-amber-500/20 transition-all duration-300'>
+                        <div key={promo.id} className='flex justify-between items-center p-4 bg-gray-900/60 rounded-lg border border-gray-800 hover:border-primary-500/20 transition-all duration-300'>
                           <div>
                             <div className='flex items-center space-x-2 mb-1'>
                               <h3 className='font-medium text-white'>{promo.name}</h3>
@@ -254,7 +254,7 @@ export default function PromosPage () {
                             <Button 
                               variant="ghost" 
                               size="sm" 
-                              className={`h-8 w-8 p-0 rounded-full ${promo.active ? 'text-green-500 hover:text-red-400 hover:bg-red-500/10' : 'text-gray-500 hover:text-green-400 hover:bg-green-500/10'}`}
+                              className={`h-8 w-8 p-0 rounded-full ${promo.active ? 'text-green-500 hover:text-secondary-400 hover:bg-secondary-500/10' : 'text-gray-500 hover:text-green-400 hover:bg-green-500/10'}`}
                               onClick={() => handleTogglePromoStatus(promo)}
                               title={promo.active ? "Desactivar" : "Activar"}
                               disabled={isProcessing}
@@ -265,7 +265,7 @@ export default function PromosPage () {
                             <Button 
                               variant="outline" 
                               size="sm" 
-                              className="border-blue-500/30 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 transition-all duration-300"
+                              className="border-primary-500/30 text-primary-400 hover:text-primary-300 hover:bg-primary-500/10 transition-all duration-300"
                               onClick={() => handleOpenEditModal(promo)}
                               disabled={isProcessing}
                             >
@@ -275,7 +275,7 @@ export default function PromosPage () {
                             <Button 
                               variant="outline" 
                               size="sm" 
-                              className="border-red-500/30 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300"
+                              className="border-secondary-500/30 text-secondary-400 hover:text-secondary-300 hover:bg-secondary-500/10 transition-all duration-300"
                               onClick={() => handleDeletePromotion(promo)}
                               disabled={isProcessing}
                             >
@@ -287,9 +287,9 @@ export default function PromosPage () {
                       ))}
                     </div>
                   ) : (
-                    <div className='text-center py-8 bg-black/50 rounded-lg border border-dashed border-amber-500/20 px-4'>
-                      <Tag className='w-10 h-10 text-amber-500/70 mx-auto mb-3' />
-                      <h3 className='text-lg font-semibold text-amber-300 mb-2'>
+                    <div className='text-center py-8 bg-black/50 rounded-lg border border-dashed border-primary-500/20 px-4'>
+                      <Tag className='w-10 h-10 text-primary-500/70 mx-auto mb-3' />
+                      <h3 className='text-lg font-semibold text-primary-300 mb-2'>
                         Sin promociones
                       </h3>
                       <p className='text-gray-400 mb-4 text-sm'>
@@ -297,7 +297,7 @@ export default function PromosPage () {
                       </p>
                       <Button 
                         onClick={() => handleOpenCreateModal(raffle.id)}
-                        className='bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black transition-all duration-300'
+                        className='bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white transition-all duration-300'
                         size='sm'
                         disabled={isProcessing}
                       >
@@ -324,9 +324,9 @@ export default function PromosPage () {
       
       {/* Delete Confirmation Dialog */}
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <AlertDialogContent className="bg-gray-900 border-gray-800 border-amber-500/10 text-white">
+        <AlertDialogContent className="bg-gray-900 border-gray-800 border-primary-500/10 text-white">
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-amber-400">¿Estás seguro?</AlertDialogTitle>
+            <AlertDialogTitle className="text-primary-400">¿Estás seguro?</AlertDialogTitle>
             <AlertDialogDescription className="text-gray-300">
               Esta acción eliminará permanentemente la promoción <span className="font-medium text-white">&quot;{promotionToDelete?.name}&quot;</span> y no se puede deshacer.
             </AlertDialogDescription>
@@ -336,7 +336,7 @@ export default function PromosPage () {
               Cancelar
             </AlertDialogCancel>
             <AlertDialogAction
-              className="bg-red-600 text-white hover:bg-red-700"
+              className="bg-secondary-600 text-white hover:bg-secondary-700"
               onClick={confirmDeletePromotion}
               disabled={isProcessing}
             >

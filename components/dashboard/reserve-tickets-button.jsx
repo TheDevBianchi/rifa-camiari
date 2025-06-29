@@ -63,7 +63,7 @@ export function ReserveTicketsButton ({ raffle }) {
         onClick={() => setIsModalOpen(true)}
         variant='outline'
         size='sm'
-        className='bg-amber-500 hover:bg-amber-600 text-white'
+        className='bg-primary-500 hover:bg-primary-600 text-white'
       >
         Reservar
       </Button>
@@ -92,7 +92,7 @@ export function ReserveTicketsButton ({ raffle }) {
           <div className='px-4 py-2 bg-gray-800 rounded-md'>
             <p className='text-sm text-white'>
               Tickets seleccionados:{' '}
-              <span className='font-bold text-primary'>
+              <span className='font-bold text-primary-400'>
                 {selectedTickets.length}
               </span>
             </p>
@@ -109,7 +109,7 @@ export function ReserveTicketsButton ({ raffle }) {
             <Button
               onClick={handleReserveTickets}
               disabled={isReserving || selectedTickets.length === 0}
-              className='bg-amber-500 hover:bg-amber-600 text-white'
+              className='bg-primary-500 hover:bg-primary-600 text-white'
             >
               {isReserving ? (
                 <>

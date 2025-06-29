@@ -65,7 +65,7 @@ export default function RankingPage() {
     return (
       <div className="container mx-auto py-10">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold text-white">Ranking de Usuarios</h1>
+          <h1 className="text-2xl font-bold text-primary-500">Ranking de Usuarios</h1>
           <Select
             value={selectedRaffle}
             onValueChange={setSelectedRaffle}
@@ -101,7 +101,7 @@ export default function RankingPage() {
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold text-white">Ranking de Usuarios</h1>
+        <h1 className="text-2xl font-bold text-primary-500">Ranking de Usuarios</h1>
         <Select
           value={selectedRaffle}
           onValueChange={setSelectedRaffle}

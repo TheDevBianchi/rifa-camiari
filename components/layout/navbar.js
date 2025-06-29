@@ -45,7 +45,7 @@ const Navbar = () => {
               height={50} 
               className="h-10 w-auto" 
             />
-            <span className="ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">Rifas Adrian</span>
+            <span className="ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">Rifa Camiari</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -39,7 +39,44 @@ const formatFirestoreDate = (firestoreDate) => {
   }) + ' UTC-4'
 }
 
-export async function getPurchases(page = 1, pageSize = 20, raffleId = null) {
+// Función auxiliar para filtrar compras
+const filterPurchases = (purchases, searchTerm) => {
+  if (!searchTerm || searchTerm.trim() === '') {
+    return purchases
+  }
+
+  const term = searchTerm.toLowerCase().trim()
+  
+  return purchases.filter(purchase => {
+    // Buscar en números de ticket
+    const ticketMatch = purchase.selectedTickets?.some(ticket => 
+      ticket.toString().toLowerCase().includes(term)
+    )
+    
+    // Buscar en email
+    const emailMatch = purchase.email?.toLowerCase().includes(term)
+    
+    // Buscar en nombre
+    const nameMatch = purchase.name?.toLowerCase().includes(term)
+    
+    // Buscar en teléfono
+    const phoneMatch = purchase.phone?.toLowerCase().includes(term)
+    
+    // Buscar en método de pago
+    const paymentMethodMatch = purchase.paymentMethod?.toLowerCase().includes(term)
+    
+    // Buscar en referencia de pago
+    const referenceMatch = purchase.paymentReference?.toLowerCase().includes(term)
+    
+    // Buscar en nombre de la rifa
+    const raffleMatch = purchase.raffleName?.toLowerCase().includes(term)
+
+    return ticketMatch || emailMatch || nameMatch || phoneMatch || 
+           paymentMethodMatch || referenceMatch || raffleMatch
+  })
+}
+
+export async function getPurchases(page = 1, pageSize = 20, raffleId = null, searchTerm = '') {
   try {
     const purchases = []
 
@@ -68,15 +105,19 @@ export async function getPurchases(page = 1, pageSize = 20, raffleId = null) {
               paymentReference: user.paymentReference || "",
               purchaseDate: purchaseDate,
               selectedTickets: user.selectedTickets,
-              createdAt: createdAt
+              createdAt: createdAt,
+              status: user.status || 'confirmed'
             })
           })
         }
       }
     }
 
+    // Aplicar filtro de búsqueda
+    const filteredPurchases = filterPurchases(purchases, searchTerm)
+
     return {
-      purchases,
+      purchases: filteredPurchases,
       success: true
     }
   } catch (error) {

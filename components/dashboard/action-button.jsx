@@ -3,13 +3,13 @@ import { Check, X, Loader2 } from 'lucide-react'
 export function ActionButton ({ onClick, disabled, variant, isLoading }) {
   const variants = {
     approve: {
-      baseClass: 'bg-gradient-to-r from-green-500 to-green-600 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] border border-green-500/30',
+      baseClass: 'bg-gradient-to-r from-primary-500 to-primary-600 hover:shadow-[0_0_15px_rgba(140,82,255,0.3)] border border-primary-500/30',
       icon: Check,
       text: 'Aprobar',
       loadingText: 'Aprobando...'
     },
     reject: {
-      baseClass: 'bg-gradient-to-r from-red-500 to-red-600 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] border border-red-500/30',
+      baseClass: 'bg-gradient-to-r from-secondary-500 to-secondary-600 hover:shadow-[0_0_15px_rgba(255,87,87,0.3)] border border-secondary-500/30',
       icon: X,
       text: 'Rechazar',
       loadingText: 'Rechazando...'

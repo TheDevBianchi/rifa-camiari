@@ -56,6 +56,22 @@ const columns = [
   }
 ]
 
+const columnsTop10 = [
+  {
+    accessorKey: "position",
+    header: "Posición",
+    cell: ({ row }) => row.index + 1
+  },
+  {
+    accessorKey: "name",
+    header: "Nombre",
+  },
+  {
+    accessorKey: "totalTickets",
+    header: "Total Tickets",
+  },
+]
+
 export function UserRanking() {
   const { raffles, getRaffles } = useRaffles()
   const [selectedRaffle, setSelectedRaffle] = useState('all')
@@ -115,7 +131,7 @@ export function UserRanking() {
     return (
       <div className="container mx-auto py-10">
         <div className="flex flex-col items-center justify-center min-h-[400px]">
-          <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+          <Loader2 className="h-8 w-8 animate-spin text-primary-500 mb-4" />
           <p className="text-gray-400">Cargando ranking...</p>
         </div>
       </div>
@@ -124,8 +140,8 @@ export function UserRanking() {
 
   return (
     <div className="py-10">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold text-white">Ranking General</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+        <h1 className="text-2xl mb-4 md:mb-0 font-bold text-white">Ranking General</h1>
         <div className="flex items-center gap-4">
           <Select
             value={selectedRaffle}
@@ -148,6 +164,7 @@ export function UserRanking() {
             disabled={isResetting}
             variant="destructive"
             size="sm"
+            className="bg-secondary-500 hover:bg-secondary-600"
           >
             {isResetting ? (
               <>
@@ -180,6 +197,69 @@ export function UserRanking() {
           />
         </div>
       )}
+    </div>
+  )
+}
+
+export function UserRankingTop10({ raffleId }) {
+  const getRankingByRaffle = useRaffleStore(state => state.getRankingByRaffle)
+  const [isLoading, setIsLoading] = useState(true)
+  const [rankingData, setRankingData] = useState([])
+
+  useEffect(() => {
+    const loadRankingData = async () => {
+      setIsLoading(true)
+      try {
+        const data = await getRankingByRaffle(raffleId)
+        setRankingData(data)
+      } catch (error) {
+        console.error('Error loading ranking:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    if (raffleId) {
+      loadRankingData()
+    }
+  }, [raffleId, getRankingByRaffle])
+
+  // Ordenar y filtrar del 10 al 1 (top 10, invertido)
+  const top10 = useMemo(() => {
+    if (!rankingData) return []
+    const sorted = [...rankingData].sort((a, b) => b.totalTickets - a.totalTickets)
+    return sorted.slice(0, 10).reverse() // del 10 al 1
+  }, [rankingData])
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto py-6">
+        <div className="flex flex-col items-center justify-center min-h-[200px]">
+          <Loader2 className="h-6 w-6 animate-spin text-primary-500 mb-2" />
+          <p className="text-gray-400">Cargando ranking...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!top10.length) {
+    return (
+      <div className="bg-gray-800/50 rounded-lg p-6 text-center border border-gray-700">
+        <h2 className="text-lg font-semibold text-gray-300 mb-2">
+          No hay datos de ranking para esta rifa
+        </h2>
+      </div>
+    )
+  }
+
+  return (
+    <div className="py-6">
+      <h2 className="text-xl font-bold text-white mb-4 text-center">Ranking Top 10</h2>
+      <div className="rounded-md border">
+        <DataTable
+          columns={columnsTop10}
+          data={top10}
+        />
+      </div>
     </div>
   )
 }

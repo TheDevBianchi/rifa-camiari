@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-export function UserInfoField({ label, value, isSensitive = false }) {
+export function UserInfoField({ label, value, isSensitive = false, isLink = false, linkText = "" }) {
   const [isVisible, setIsVisible] = useState(false)
 
   const toggleVisibility = () => setIsVisible(!isVisible)
@@ -22,21 +22,27 @@ export function UserInfoField({ label, value, isSensitive = false }) {
 
   return (
     <div className='relative'>
-      <label className='text-sm text-amber-500/80'>{label}:</label>
+      <label className='text-sm text-primary-400/80'>{label}:</label>
       <div className='flex items-center gap-2'>
-        <p className='font-medium text-gray-200'>
-          {isSensitive ? (isVisible ? value : maskValue(value)) : value}
-        </p>
+        {isLink ? (
+          <a href={linkText} className='font-medium text-gray-200' target='_blank' rel='noopener noreferrer'>
+            {isSensitive ? (isVisible ? value : maskValue(value)) : value}
+          </a>
+        ) : (
+          <p className='font-medium text-gray-200'>
+            {isSensitive ? (isVisible ? value : maskValue(value)) : value}
+          </p>
+        )}
         {isSensitive && (
           <Button
             variant='ghost'
             size='sm'
             onClick={toggleVisibility}
-            className='p-1 h-auto hover:bg-amber-900/20 hover:text-amber-500'>
+            className='p-1 h-auto hover:bg-primary-900/20 hover:text-primary-400'>
             {isVisible ? (
-              <EyeOff className='h-4 w-4 text-amber-500/70' />
+              <EyeOff className='h-4 w-4 text-primary-400/70' />
             ) : (
-              <Eye className='h-4 w-4 text-amber-500/70' />
+              <Eye className='h-4 w-4 text-primary-400/70' />
             )}
           </Button>
         )}

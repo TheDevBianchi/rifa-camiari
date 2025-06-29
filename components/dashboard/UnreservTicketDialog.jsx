@@ -16,10 +16,10 @@ export function UnreservTicketDialog({
 }) {
   return (
     <Dialog open={!!selectedTicket} onOpenChange={onClose}>
-      <DialogContent className="bg-black border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+      <DialogContent className="bg-black border border-primary-500/20 shadow-[0_0_15px_rgba(140,82,255,0.1)]">
         <DialogHeader>
-          <DialogTitle className="text-amber-500 flex items-center gap-2">
-            <AlertCircle className="w-5 h-5 text-amber-500" />
+          <DialogTitle className="text-primary-400 flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-primary-400" />
             Liberar Ticket #{selectedTicket}
           </DialogTitle>
           <DialogDescription className="text-gray-400">
@@ -27,13 +27,13 @@ export function UnreservTicketDialog({
           </DialogDescription>
         </DialogHeader>
         <div className='flex justify-end gap-2'>
-          <Button variant='outline' className="border-amber-500/50 text-amber-500 hover:bg-amber-950" onClick={onClose}>
+          <Button variant='outline' className="border-primary-500/50 text-primary-400 hover:bg-primary-950" onClick={onClose}>
             Cancelar
           </Button>
           <Button
             onClick={onConfirm}
             disabled={isUnreserving}
-            className='bg-amber-500 text-black hover:bg-amber-600'>
+            className='bg-primary-500 text-white hover:bg-primary-600'>
             {isUnreserving ? (
               <>
                 <Loader2 size={16} className='animate-spin mr-2' />

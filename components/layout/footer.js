@@ -18,12 +18,12 @@ function Footer() {
             <div className='flex items-center mb-4'>
               <Image
                 src='/logo-transparente.webp'
-                alt='Logo Rifas Adrian'
+                alt='Logo Rifa Camiari'
                 width={50}
                 height={50}
                 className='h-12 w-auto'
               />
-              <span className='ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Rifas Adrian</span>
+              <span className='ml-2 text-xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Rifa Camiari</span>
             </div>
             <p className='text-gray-400 text-center md:text-left mb-6'>
               Plataforma de rifas online con los mejores premios y las mejores oportunidades para ganar.
@@ -116,7 +116,7 @@ function Footer() {
         {/* Copyright */}
         <div className='border-t border-gray-800 mt-12 pt-8 text-center'>
           <p className='text-gray-500'>
-            &copy; {new Date().getFullYear()} Rifas Adrian. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Rifa Camiari. Todos los derechos reservados.
           </p>
           <p className='text-gray-500 mt-2'>
             Creado por{' '}

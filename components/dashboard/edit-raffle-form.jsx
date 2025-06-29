@@ -71,7 +71,7 @@ export function EditRaffleForm({ raffle }) {
     <div className='w-full'>
       <Card className='border-gray-800 bg-gray-900/50 backdrop-blur'>
         <CardHeader>
-          <CardTitle>Editar Rifa</CardTitle>
+          <CardTitle className='text-primary-400'>Editar Rifa</CardTitle>
           <CardDescription>Modifica los detalles de la rifa.</CardDescription>
         </CardHeader>
         <CardContent>
@@ -90,7 +90,7 @@ export function EditRaffleForm({ raffle }) {
                         {...field}
                         className={cn(
                           'bg-gray-800/50 border-gray-700',
-                          errors.title && 'border-red-500 focus:ring-red-500'
+                          errors.title && 'border-secondary-500 focus:ring-secondary-500'
                         )}
                         placeholder='Nombre de la rifa'
                       />
@@ -111,7 +111,7 @@ export function EditRaffleForm({ raffle }) {
                         type='text'
                         className={cn(
                           'bg-gray-800/50 border-gray-700',
-                          errors.price && 'border-red-500 focus:ring-red-500'
+                          errors.price && 'border-secondary-500 focus:ring-secondary-500'
                         )}
                         placeholder='0.00'
                       />
@@ -133,7 +133,7 @@ export function EditRaffleForm({ raffle }) {
                         className={cn(
                           'bg-gray-800/50 border-gray-700',
                           errors.totalTickets &&
-                            'border-red-500 focus:ring-red-500'
+                            'border-secondary-500 focus:ring-secondary-500'
                         )}
                         placeholder={`${raffle.totalTickets}`}
                       />
@@ -175,7 +175,7 @@ export function EditRaffleForm({ raffle }) {
                         className={cn(
                           'bg-gray-800/50 border-gray-700 min-h-[120px]',
                           errors.description &&
-                            'border-red-500 focus:ring-red-500'
+                            'border-secondary-500 focus:ring-secondary-500'
                         )}
                         placeholder='Describe los detalles de la rifa'
                       />
@@ -199,7 +199,7 @@ export function EditRaffleForm({ raffle }) {
               <Button
                 type='submit'
                 disabled={isSubmitting}
-                className='min-w-[200px] bg-primary hover:bg-primary/90'>
+                className='min-w-[200px] bg-primary-500 hover:bg-primary-600'>
                 {isSubmitting ? (
                   <>
                     <Loader2 className='mr-2 h-4 w-4 animate-spin' />

@@ -34,8 +34,6 @@ export default function DollarPricePage() {
           
           // Inicializar con valores desde el store
           setExchangeRates({
-            ARS: dollarPrice.ARS || 900,
-            CLP: dollarPrice.CLP || 950,
             VES: dollarPrice.VES || 100
           })
           
@@ -50,18 +48,16 @@ export default function DollarPricePage() {
       
       fetchData()
     }
-  }, [getDollarPrice, dataFetched, dollarPrice?.ARS, dollarPrice?.CLP, dollarPrice?.VES])
+  }, [getDollarPrice, dataFetched, dollarPrice?.VES])
   
   // Actualizar exchangeRates cuando dollarPrice cambia, pero solo después de la carga inicial
   useEffect(() => {
     if (dataFetched && dollarPrice) {
       setExchangeRates({
-        ARS: dollarPrice.ARS || 900,
-        CLP: dollarPrice.CLP || 950,
         VES: dollarPrice.VES || 1
       })
     }
-  }, [dollarPrice, dataFetched, dollarPrice.ARS, dollarPrice.CLP, dollarPrice.VES])
+  }, [dollarPrice, dataFetched, dollarPrice.VES])
 
   const handleInputChange = (currency, value) => {
     // Permitir valores vacíos para facilitar la edición
@@ -77,8 +73,6 @@ export default function DollarPricePage() {
     
     // Validar que todos los valores sean números válidos antes de guardar
     const validatedRates = {
-      ARS: parseFloat(exchangeRates.ARS) || 0,
-      CLP: parseFloat(exchangeRates.CLP) || 0,
       VES: parseFloat(exchangeRates.VES) || 0
     }
     
@@ -97,8 +91,6 @@ export default function DollarPricePage() {
   // Función para obtener nombre del país según la moneda
   const getCountryNameByCurrency = (currencyCode) => {
     const countryMap = {
-      'ARS': 'Argentina',
-      'CLP': 'Chile',
       'VES': 'Venezuela'
     }
     return countryMap[currencyCode] || currencyCode
@@ -115,12 +107,12 @@ export default function DollarPricePage() {
       {/* Header with Back Button */}
       <div className="flex items-center gap-2 mb-6">
         <Link href="/dashboard/settings">
-          <Button variant="ghost" size="icon" className="text-amber-500 hover:bg-amber-500/10 hover:text-amber-300 transition-colors">
+          <Button variant="ghost" size="icon" className="text-primary-500 hover:bg-primary-500/10 hover:text-primary-300 transition-colors">
             <ArrowLeft className="h-5 w-5" />
           </Button>
         </Link>
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+          <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">
             Precio del Dólar
           </h1>
           <p className="text-gray-400 text-sm md:text-base">
@@ -132,16 +124,16 @@ export default function DollarPricePage() {
       {/* Loading State */}
       {isLoading ? (
         <div className="flex flex-col items-center justify-center py-8 md:py-12">
-          <Loader2 className="w-8 h-8 md:w-10 md:h-10 animate-spin text-amber-500" />
+          <Loader2 className="w-8 h-8 md:w-10 md:h-10 animate-spin text-primary-500" />
           <p className="text-gray-400 mt-4 text-sm md:text-base">
             Cargando precios del dólar...
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <Card className="bg-black/60 border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.05)]">
+          <Card className="bg-black/60 border-primary-500/20 shadow-[0_0_15px_rgba(140,82,255,0.05)]">
             <CardHeader>
-              <CardTitle className="text-amber-300 flex items-center gap-2">
+              <CardTitle className="text-primary-300 flex items-center gap-2">
                 <DollarSign className="h-5 w-5" />
                 Tasas de Cambio
               </CardTitle>
@@ -153,9 +145,9 @@ export default function DollarPricePage() {
               </p>
               
               {/* Exchange Rates Inputs */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                 {Object.keys(exchangeRates).map((currency) => (
-                  <Card key={currency} className="bg-black/40 border-amber-500/10 shadow-[0_0_10px_rgba(245,158,11,0.03)]">
+                  <Card key={currency} className="bg-black/40 w-full border-primary-500/10 shadow-[0_0_10px_rgba(140,82,255,0.03)]">
                     <CardHeader className="pb-2">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full overflow-hidden relative">
@@ -165,14 +157,9 @@ export default function DollarPricePage() {
                             width={24}
                             height={24}
                             className="object-cover"
-                            onError={() => {
-                              // Next/Image no soporta onError de la misma manera
-                              // Se maneja con la prop unoptimized para fallbacks
-                            }}
-                            unoptimized
                           />
                         </div>
-                        <CardTitle className="text-sm font-medium text-amber-300">
+                        <CardTitle className="text-sm font-medium text-primary-300">
                           {getCountryNameByCurrency(currency)} ({currency})
                         </CardTitle>
                       </div>
@@ -186,14 +173,14 @@ export default function DollarPricePage() {
                             onChange={(e) => handleInputChange(currency, e.target.value)}
                             min="0"
                             step="0.01"
-                            className="bg-black/50 border-gray-700/50 focus-visible:ring-amber-500/50 focus:ring-amber-500/50 focus:border-amber-500/50 transition-colors pl-8"
+                            className="bg-black/50 border-gray-700/50 focus-visible:ring-primary-500/50 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors pl-8"
                           />
                           <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                             {currency === 'USD' ? '$' : currency === 'ARS' ? '$' : '$'}
                           </span>
                         </div>
                         <span className="mx-2 text-gray-400">=</span>
-                        <div className="bg-amber-500/10 px-3 py-2 rounded-md border border-amber-500/20 text-amber-300 font-medium">
+                        <div className="bg-primary-500/10 px-3 py-2 rounded-md border border-primary-500/20 text-primary-300 font-medium">
                           $1 USD
                         </div>
                       </div>
@@ -203,9 +190,9 @@ export default function DollarPricePage() {
               </div>
               
               {/* Exchange Rate Info */}
-              <div className="bg-amber-500/5 border border-amber-500/10 rounded-lg p-4 text-sm text-gray-400">
+              <div className="bg-primary-500/5 border border-primary-500/10 rounded-lg p-4 text-sm text-gray-400">
                 <p className="flex items-center gap-2">
-                  <RefreshCw className="h-4 w-4 text-amber-500" />
+                  <RefreshCw className="h-4 w-4 text-primary-500" />
                   Las tasas de cambio se actualizan manualmente. Recuerda mantenerlas actualizadas para ofrecer precios precisos a tus clientes.
                 </p>
               </div>
@@ -215,7 +202,7 @@ export default function DollarPricePage() {
               <Button 
                 type="submit" 
                 disabled={isLoading || isSaving}
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black transition-all duration-300"
+                className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white transition-all duration-300"
               >
                 {isSaving ? (
                   <>
@@ -233,23 +220,6 @@ export default function DollarPricePage() {
           </Card>
         </form>
       )}
-      
-      {/* Exchange Rate History */}
-      <Card className="bg-black/60 border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.05)]">
-        <CardHeader>
-          <CardTitle className="text-amber-300">Historial de Cambios</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-gray-400 text-sm">
-            Aquí podrás ver un historial de los cambios realizados a las tasas de cambio.
-            Esta funcionalidad estará disponible próximamente.
-          </p>
-          
-          <div className="mt-4 p-4 bg-black/40 rounded-lg border border-amber-500/10 text-center">
-            <p className="text-amber-400 text-sm">Próximamente</p>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }

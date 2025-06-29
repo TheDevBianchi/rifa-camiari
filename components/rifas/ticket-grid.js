@@ -129,7 +129,7 @@ const TicketGrid = memo(({
 
   return (
     <>
-      <div className='grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-[600px] overflow-y-auto p-2'>
+      <div className='grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-[600px] overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary-500 scrollbar-track-primary-900'>
         {tickets.map(ticket => (
           <div
             key={ticket.number}

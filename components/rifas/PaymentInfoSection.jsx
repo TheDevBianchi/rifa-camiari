@@ -160,80 +160,47 @@ const PaymentInfoSection = ({
                 Información de {selectedPaymentMethod.name}
               </h3>
             </div>
-
-            {selectedPaymentMethod.instructions && (
-              <div className='text-sm text-gray-300 p-3 bg-black/30 rounded-lg border border-primary-500/10'>
-                <p>{selectedPaymentMethod.instructions}</p>
-              </div>
-            )}
-
             <div className='space-y-2'>
-              {/* Mostrar información básica del método de pago */}
-              {selectedPaymentMethod.accountHolder && (
+              {selectedPaymentMethod.name && (
                 <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
-                  <span className='text-gray-400'>Titular:</span>
-                  <CopyButton text={selectedPaymentMethod.accountHolder} label={selectedPaymentMethod.accountHolder} />
+                  <span className='text-gray-400'>Nombre del método:</span>
+                  <CopyButton text={selectedPaymentMethod.name} label={selectedPaymentMethod.name} />
                 </div>
               )}
-              {selectedPaymentMethod.accountNumber && (
+              {selectedPaymentMethod.identity && (
                 <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
-                  <span className='text-gray-400'>Cuenta:</span>
-                  <CopyButton text={selectedPaymentMethod.accountNumber} label={selectedPaymentMethod.accountNumber} />
+                  <span className='text-gray-400'>Cédula de Identidad:</span>
+                  <CopyButton text={selectedPaymentMethod.identity} label={selectedPaymentMethod.identity} />
                 </div>
               )}
-              
-              {/* Mostrar campos personalizados si existen */}
-              {selectedPaymentMethod.customFields && selectedPaymentMethod.customFields.length > 0 && (
-                <div className='mt-3 pt-3 border-t border-primary-500/10'>
-                  <h4 className='text-sm font-medium text-primary-300 mb-2'>Información adicional</h4>
-                  <div className='space-y-2'>
-                    {selectedPaymentMethod.customFields.map(field => (
-                      <div key={field.id} className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
-                        <span className='text-gray-400'>{field.label}:</span>
-                        {field.value ? (
-                          <CopyButton text={field.value} label={field.value} />
-                        ) : (
-                          <span className='text-gray-300'>-</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+              {selectedPaymentMethod.bank && (
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
+                  <span className='text-gray-400'>Banco:</span>
+                  <CopyButton text={selectedPaymentMethod.bank} label={selectedPaymentMethod.bank} />
                 </div>
               )}
-              
-              {/* Campos personalizados para que el usuario complete */}
-              {selectedPaymentMethod.customFields && selectedPaymentMethod.customFields.filter(f => f.userInput).length > 0 && (
-                <div className='mt-4 pt-4 border-t border-primary-500/10 space-y-3'>
-                  <h4 className='text-sm font-medium text-primary-300'>Información requerida</h4>
-                  {selectedPaymentMethod.customFields.filter(f => f.userInput).map(field => (
-                    <div key={field.id} className='space-y-1'>
-                      <label className='text-xs font-medium text-gray-300'>
-                        {field.label} {field.required && <span className='text-secondary-400'>*</span>}
-                      </label>
-                      <Controller
-                        name={`customField_${field.id}`}
-                        control={control}
-                        rules={field.required ? { required: `${field.label} es requerido` } : {}}
-                        render={({ field: inputField }) => (
-                          <Input
-                            {...inputField}
-                            type={field.type || 'text'}
-                            placeholder={field.placeholder || `Ingrese ${field.label.toLowerCase()}`}
-                            className='bg-black/50 border-gray-700/50 focus-visible:ring-primary-500/50 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors'
-                            onChange={(e) => {
-                              inputField.onChange(e)
-                              handleCustomFieldChange(field.id, e.target.value)
-                            }}
-                          />
-                        )}
-                      />
-                      {errors[`customField_${field.id}`] && (
-                        <p className='text-secondary-400 text-xs'>
-                          {errors[`customField_${field.id}`].message}
-                        </p>
-                      )}
-                    </div>
-                  ))}
+              {selectedPaymentMethod.bankCode && (
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
+                  <span className='text-gray-400'>Código del Banco:</span>
+                  <CopyButton text={selectedPaymentMethod.bankCode} label={selectedPaymentMethod.bankCode} />
+                </div>
+              )}
+              {selectedPaymentMethod.email && (
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
+                  <span className='text-gray-400'>Correo electrónico:</span>
+                  <CopyButton text={selectedPaymentMethod.email} label={selectedPaymentMethod.email} />
+                </div>
+              )}
+              {selectedPaymentMethod.contactName && (
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
+                  <span className='text-gray-400'>Nombre de contacto:</span>
+                  <CopyButton text={selectedPaymentMethod.contactName} label={selectedPaymentMethod.contactName} />
+                </div>
+              )}
+              {selectedPaymentMethod.phone && (
+                <div className='flex flex-col md:flex-row justify-between items-center p-2 rounded bg-black/20 border border-primary-500/10'>
+                  <span className='text-gray-400'>Teléfono:</span>
+                  <CopyButton text={selectedPaymentMethod.phone} label={selectedPaymentMethod.phone} />
                 </div>
               )}
             </div>

@@ -180,7 +180,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(3);
+                setRandomTicketCount(prev => prev + 3);
                 setValue('selectedTickets', Array(3).fill(''), { shouldValidate: true });
               }}
             >
@@ -190,7 +190,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(5);
+                setRandomTicketCount(prev => prev + 5);
                 setValue('selectedTickets', Array(5).fill(''), { shouldValidate: true });
               }}
             >
@@ -200,7 +200,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(10);
+                setRandomTicketCount(prev => prev + 10);
                 setValue('selectedTickets', Array(10).fill(''), { shouldValidate: true });
               }}
             >
@@ -210,7 +210,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(15);
+                setRandomTicketCount(prev => prev + 15);
                 setValue('selectedTickets', Array(15).fill(''), { shouldValidate: true });
               }}
             >
@@ -220,7 +220,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(20);
+                setRandomTicketCount(prev => prev + 20);
                 setValue('selectedTickets', Array(20).fill(''), { shouldValidate: true });
               }}
             >
@@ -230,7 +230,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(50);
+                setRandomTicketCount(prev => prev + 50);
                 setValue('selectedTickets', Array(50).fill(''), { shouldValidate: true });
               }}
             >
@@ -240,7 +240,7 @@ const TicketSelectionSection = ({
               className='bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300' 
               type='button' 
               onClick={() => {
-                setRandomTicketCount(100);
+                setRandomTicketCount(prev => prev + 100);
                 setValue('selectedTickets', Array(100).fill(''), { shouldValidate: true });
               }}
             >
