@@ -7,20 +7,6 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 // Definir los países por defecto
 const defaultCountries = [
   { 
-    id: 'Argentina', 
-    name: 'Argentina', 
-    flag: 'https://flagcdn.com/w80/ar.png',
-    currency: 'ARS',
-    currencySymbol: '$'
-  },
-  { 
-    id: 'Chile', 
-    name: 'Chile', 
-    flag: 'https://flagcdn.com/w80/cl.png',
-    currency: 'CLP',
-    currencySymbol: '$'
-  },
-  { 
     id: 'Venezuela', 
     name: 'Venezuela', 
     flag: 'https://flagcdn.com/w80/ve.png',
@@ -33,7 +19,7 @@ const defaultCountries = [
 export const useCountryStore = create(
   persist(
     (set, get) => ({
-      selectedCountry: 'Argentina', // País por defecto
+      selectedCountry: 'Venezuela', // País por defecto
       countries: defaultCountries,
       
       // Acciones
