@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const adminRoutes = [
   { icon: Home, href: "/dashboard", label: "Dashboard" },
-  { icon: Users, href: "/dashboard/users", label: "Usuarios" },
+  { icon: Users, href: "/dashboard/compras", label: "Usuarios" },
   { icon: Gift, href: "/dashboard/rifas", label: "Rifas" },
   { icon: Settings, href: "/dashboard/settings", label: "Configuración" },
 ];
