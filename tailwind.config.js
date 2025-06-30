@@ -174,6 +174,7 @@ module.exports = {
       backgroundImage: {
         "footer-gradient":
           "linear-gradient(135deg, #000000 2%, #490505 63%, #06145D 100%)",
+        "header-banner": "url('/Banner.webp')",
       },
     },
   },
