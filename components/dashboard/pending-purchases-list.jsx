@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRaffles } from '@/hooks/useRaffles'
+import { useSendEmail } from '@/hooks/useSendEmail'
 import { toast } from 'sonner'
 import { PurchaseCard } from './purchase-card'
 import { EmptyState } from './empty-state'
@@ -9,6 +10,7 @@ import { EmptyState } from './empty-state'
 function PendingPurchasesList() {
   const { raffles, getRaffles, approvePendingPurchase, rejectPendingPurchase } =
     useRaffles()
+  const { sendEmail } = useSendEmail()
 
   useEffect(() => {
     getRaffles()
@@ -28,46 +30,41 @@ function PendingPurchasesList() {
     try {
       const raffle = raffles.find((r) => r.id === raffleId)
 
-      let ticketsToApprove = purchase.selectedTickets
-      let updatedReservedTickets = [...(raffle.reservedTickets || [])]
-
+      let finalPurchaseData = { ...purchase };
       if (raffle.randomTickets) {
-        const soldTickets = raffle.soldTickets || []
-        const totalTickets = raffle.totalTickets
-        const ticketsNeeded = purchase.selectedTickets.length
+        const soldTickets = raffle.soldTickets || [];
+        const totalTickets = raffle.totalTickets;
+        const ticketsNeeded = purchase.selectedTickets.length;
         const availableTickets = Array.from({ length: totalTickets }, (_, i) =>
           (i + 1).toString().padStart(3, '0')
-        ).filter((number) => !soldTickets.includes(number))
+        ).filter((number) => !soldTickets.includes(number));
 
-        const shuffledTickets = availableTickets.sort(() => Math.random() - 0.5)
-        ticketsToApprove = shuffledTickets.slice(0, ticketsNeeded)
+        const shuffledTickets = availableTickets.sort(() => Math.random() - 0.5);
+        const ticketsToApprove = shuffledTickets.slice(0, ticketsNeeded);
 
         if (ticketsToApprove.length < ticketsNeeded) {
-          throw new Error('No hay suficientes tickets disponibles')
+          throw new Error('No hay suficientes tickets disponibles');
         }
-
-        updatedReservedTickets = updatedReservedTickets.filter(
-          (_, index) => index >= ticketsNeeded
-        )
+        
+        finalPurchaseData.selectedTickets = ticketsToApprove;
       }
 
-      await approvePendingPurchase(raffleId, {
-        ...purchase,
-        selectedTickets: ticketsToApprove,
-        reservedTickets: updatedReservedTickets,
+      const result = await approvePendingPurchase(raffleId, finalPurchaseData)
+
+      if (!result.success) {
+        throw new Error(result.error || 'Error al actualizar la base de datos.');
+      }
+
+      await sendEmail(result.templateParams);
+
+      toast.success('Compra aprobada y correo enviado', {
+        description: `Se ha confirmado la compra de ${finalPurchaseData.selectedTickets.length} tickets para ${purchase.name}.`,
+        duration: 5000,
       })
 
-      toast.success('Compra aprobada exitosamente', {
-        description: `Se ha confirmado la compra de ${purchase.selectedTickets.length} tickets para ${purchase.name}. Se enviará la confirmación a ${purchase.email}`,
-        duration: 5000,
-        action: {
-          label: 'Cerrar',
-          onClick: () => console.log('Toast closed'),
-        },
-      })
     } catch (error) {
-      toast.error('Error al aprobar la compra', {
-        description: `Ha ocurrido un error al intentar aprobar la compra. Por favor, inténtalo nuevamente. ${error.message}`,
+      toast.error('Error en el proceso de aprobación', {
+        description: `Ha ocurrido un error. ${error.message}`,
         duration: 5000,
       })
     } finally {

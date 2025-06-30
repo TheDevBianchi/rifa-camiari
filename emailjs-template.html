@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra - Jirvin Rifas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .success-message {
+            background-color: #F2EBFF;
+            border-left: 4px solid #8c52ff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        .success-message h2 {
+            color: #8c52ff;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .details-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .details-section h3 {
+            color: #8c52ff;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .details-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .value {
+            color: #8c52ff;
+            font-weight: 500;
+        }
+        .raffle-info {
+            background: linear-gradient(135deg, #ff5757 0%, #8c52ff 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .raffle-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .ticket-numbers {
+            background-color: #FFEBEC;
+            border: 1px solid #ff5757;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #ff5757;
+            text-align: center;
+        }
+        .random-notice {
+            background-color: #FFF3CD;
+            border: 1px solid #FFC107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            color: #856404;
+            text-align: center;
+            font-weight: 500;
+        }
+        .customer-name {
+            color: #8c52ff;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .social-links {
+            margin-top: 15px;
+        }
+        .social-links a {
+            color: #8c52ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        .social-links a:hover {
+            color: #ff5757;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+            .details-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 ¡Gracias por tu compra!</h1>
+        </div>
+        
+        <div class="content">
+            <div class="success-message">
+                <h2>✅ Reserva Confirmada</h2>
+                <p>Hola <span class="customer-name">{{to_name}}</span>, tu compra ha sido procesada exitosamente. Aquí tienes todos los detalles de tu reserva:</p>
+            </div>
+            
+            <div class="details-section">
+                <h3>📋 Detalles de la Compra</h3>
+                <ul class="details-list">
+                    <li>
+                        <span class="label">Email:</span>
+                        <span class="value">{{to_email}}</span>
+                    </li>
+                    <li>
+                        <span class="label">Asunto:</span>
+                        <span class="value">{{subject}}</span>
+                    </li>
+                    <li>
+                        <span class="label">Mensaje:</span>
+                        <span class="value">{{message}}</span>
+                    </li>
+                    <li>
+                        <span class="label">Datos de Compra:</span>
+                        <span class="value">{{purchase_data}}</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="raffle-info">
+                <h3>🎯 Información de la Rifa</h3>
+                <p>¡Buena suerte! Te notificaremos cuando se realice el sorteo.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>© 2025 Rifas Camiari. Todos los derechos reservados.</strong></p>
+            <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+            <div class="social-links">
+                <a href="https://wa.me/+584123456789">📱 WhatsApp</a>
+                <a href="https://instagram.com/rifascamiari">📸 Instagram</a>
+                <a href="https://facebook.com/jirvinrifas">📘 Facebook</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

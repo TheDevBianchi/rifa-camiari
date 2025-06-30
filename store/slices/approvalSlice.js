@@ -92,66 +92,74 @@ export const createApprovalSlice = (set, get) => ({
 
       await updateDoc(docRef, updatedRaffle)
 
-      // Actualizar el ranking de usuarios - Agregar console.log para debug
-      console.log('Actualizando ranking para:', {
-        name: purchase.name,
-        email: purchase.email,
-        phone: purchase.phone,
-        selectedTickets: selectedTickets
-      })
-
-      // Obtener la función del store
-      const { updateUserRanking } = get()
-      
-      // Asegurarse de que la función existe
-      if (!updateUserRanking) {
-        console.error('updateUserRanking no está disponible en el store')
-        return
+      // Actualizar el ranking de usuarios
+      const { updateUserRanking } = get();
+      if (updateUserRanking) {
+        await updateUserRanking({
+          name: purchase.name,
+          email: purchase.email,
+          phone: purchase.phone,
+          selectedTickets: selectedTickets
+        });
+      } else {
+        console.error('updateUserRanking no está disponible en el store');
       }
 
-      // Llamar a la función de actualización del ranking
-      await updateUserRanking({
-        name: purchase.name,
-        email: purchase.email,
-        phone: purchase.phone,
-        selectedTickets: selectedTickets
-      })
+      // Generar el bloque HTML para los tickets (usando tablas para compatibilidad)
+      let tickets_html = '';
+      if (selectedTickets && selectedTickets.length > 0) {
+        const columns = 5; // 5 tickets por fila
+        let ticketRows = '';
+        for (let i = 0; i < selectedTickets.length; i += columns) {
+          const chunk = selectedTickets.slice(i, i + columns);
+          let rowTds = chunk.map(ticket => 
+            `<td align="center" style="padding: 5px;">
+              <div style="background-color: #FFEBEC; border: 2px solid #ff5757; border-radius: 6px; padding: 8px 4px; text-align: center; font-family: 'Courier New', monospace; font-weight: 700; color: #ff5757; font-size: 14px;">
+                ${ticket}
+              </div>
+            </td>`
+          ).join('');
+          
+          ticketRows += `<tr>${rowTds}</tr>`;
+        }
 
-      // Enviar correo de confirmación usando Resend API
-      const emailParams = {
-        email: purchase.email,
-        name: purchase.name,
-        amount: (selectedTickets.length * currentRaffle.price).toFixed(2),
-        date: new Date(purchase.createdAt.seconds * 1000).toLocaleDateString(),
-        paymentMethod: purchase.paymentMethod,
-        raffleName: currentRaffle.title,
-        ticketsCount: selectedTickets.length,
-        confirmationNumber: purchase.reference,
-        number: selectedTickets.join(', ')
+        tickets_html = `
+          <div style="background-color: #F2EBFF; border: 1px solid #8c52ff; border-radius: 8px; padding: 20px; margin: 15px 0;">
+            <h4 style="color: #8c52ff; margin: 0 0 15px 0; font-size: 16px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">🎫 Tus Tickets Asignados</h4>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                ${ticketRows}
+              </tbody>
+            </table>
+          </div>
+        `;
       }
 
-      const emailResponse = await fetch('/api/email/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(emailParams)
-      })
-
-      if (!emailResponse.ok) {
-        console.error('Error al enviar el correo de confirmación')
-      }
+      // Preparar los datos para el email (aplanados, sin JSON)
+      const templateParams = {
+        to_email: purchase.email,
+        to_name: purchase.name || 'Cliente',
+        subject: `Confirmación de Compra - ${currentRaffle.title}`,
+        raffle_title: currentRaffle.title,
+        ticket_count: selectedTickets.length,
+        ticket_type: (currentRaffle.randomTickets || false) ? 'Aleatorios 🎲' : 'Específicos 🎯',
+        payment_method: purchase.paymentMethod || 'No especificado',
+        payment_reference: purchase.reference || 'No especificado',
+        total_amount: `$${(selectedTickets.length * currentRaffle.price).toFixed(2)} USD`,
+        tickets_html: tickets_html,
+      };
 
       set(state => ({
         raffles: state.raffles.map(raffle =>
           raffle.id === raffleId ? { ...raffle, ...updatedRaffle } : raffle
         )
-      }))
+      }));
 
-      return true
+      return { success: true, templateParams };
+
     } catch (error) {
-      console.error('Error en approvePendingPurchase:', error)
-      throw error
+      console.error('Error en approvePendingPurchase:', error);
+      return { success: false, error: error.message };
     }
   },
 
