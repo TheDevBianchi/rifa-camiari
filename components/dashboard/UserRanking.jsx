@@ -227,7 +227,7 @@ export function UserRankingTop10({ raffleId }) {
   const top10 = useMemo(() => {
     if (!rankingData) return []
     const sorted = [...rankingData].sort((a, b) => b.totalTickets - a.totalTickets)
-    return sorted.slice(0, 10).reverse() // del 10 al 1
+    return sorted.slice(0, 10) // del 1 al 10, el que más tickets primero
   }, [rankingData])
 
   if (isLoading) {
