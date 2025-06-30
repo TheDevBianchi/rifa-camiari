@@ -7,7 +7,7 @@ La API `/api/email` soporta dos formatos de datos diferentes para mantener compa
 ```javascript
 {
   "to": "cliente@email.com",
-  "subject": "Confirmación de Compra - Jirvin Rifas",
+  "subject": "Confirmación de Compra - Rifas Camiari",
   "purchaseData": {
     "customerName": "Juan Pérez",
     "selectedTickets": ["001", "002", "003"],
@@ -30,7 +30,7 @@ La API `/api/email` soporta dos formatos de datos diferentes para mantener compa
 
 #### `subject` (string, opcional)
 - Asunto del email
-- Por defecto: "Confirmación de Compra - Jirvin Rifas"
+- Por defecto: "Confirmación de Compra - Rifas Camiari"
 
 #### `purchaseData` (object, requerido)
 - `customerName` (string): Nombre del cliente
@@ -117,7 +117,7 @@ La API detecta automáticamente el formato y convierte el formato antiguo al nue
 // Conversión automática a formato nuevo
 {
   "to": "cliente@email.com",
-  "subject": "Confirmación de Compra - Jirvin Rifas",
+  "subject": "Confirmación de Compra - Rifas Camiari",
   "purchaseData": {
     "customerName": "Juan Pérez",
     "selectedTickets": ["001", "002", "003"],

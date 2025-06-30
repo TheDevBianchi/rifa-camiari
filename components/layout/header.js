@@ -60,7 +60,7 @@ export default function Header() {
                     <div className='absolute inset-0 bg-gradient-to-r from-primary-500/20 to-primary-700/20 group-hover:opacity-0 transition-opacity duration-700 z-20'></div>
                       <Image
                       src='/logo-transparente.webp'
-                      alt='Logo de Jirvin Rifas'
+                      alt='Logo de Rifas Camiari'
                       width={900}
                       height={900}
                       className='relative z-10 object-contain w-full h-full p-8'
