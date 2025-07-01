@@ -76,13 +76,6 @@ export default function Header() {
               </div>
             </div>
           </div>
-          
-          {/* Wave Divider */}
-          <div className='w-full overflow-hidden'>
-            <svg className='w-full h-16 md:h-24' viewBox='0 0 1440 74' fill='none' xmlns='http://www.w3.org/2000/svg'>
-              <path d='M0,37 C240,74 480,0 720,37 C960,74 1200,0 1440,37 L1440,74 L0,74 Z' fill='#111111'></path>
-            </svg>
-          </div>
         </div>
       </header>
     </>  
