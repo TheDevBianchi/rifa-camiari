@@ -4,12 +4,6 @@ import Link from 'next/link'
 function Footer() {
   return (
     <footer className='bg-black border-t border-gray-900'>
-      {/* Wave Divider */}
-      <div className='w-full overflow-hidden transform rotate-180'>
-        <svg className='w-full h-16 md:h-24' viewBox='0 0 1440 74' fill='none' xmlns='http://www.w3.org/2000/svg'>
-          <path d='M0,37 C240,74 480,0 720,37 C960,74 1200,0 1440,37 L1440,74 L0,74 Z' fill='#111111'></path>
-        </svg>
-      </div>
       
       <div className='container mx-auto px-4 md:px-6 py-12'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12'>
