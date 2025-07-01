@@ -72,12 +72,6 @@ export default function Header() {
                     {/* Efecto de brillo al pasar el cursor */}
                     <div className='absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-primary-400/10 to-primary-300/5 z-30 transition-opacity duration-700'></div>
                   </div>
-                  
-                  {/* Badge de próximo sorteo con animación */}
-                  <div className='absolute -bottom-4 -right-4 bg-black border border-primary-500/50 rounded-lg p-4 shadow-[0_0_15px_rgba(140,82,255,0.2)] z-20 hover:shadow-[0_0_20px_rgba(140,82,255,0.4)] transition-all duration-300'>
-                    <p className='text-primary-400 font-bold'>¡Próximo Sorteo!</p>
-                    <p className='text-white text-sm'>1 de Junio, 2025</p>
-                  </div>
                 </div>
               </div>
             </div>
