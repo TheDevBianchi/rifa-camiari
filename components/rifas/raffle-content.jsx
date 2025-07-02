@@ -7,7 +7,7 @@ export function RaffleContent ({ raffle, onSubmit }) {
     <main className='container mx-auto px-4 py-12 md:py-16'>
       <div className='max-w-5xl mx-auto space-y-12'>
         {/* Título de la sección */}
-        <div className='text-center'>
+        <div className='text-center mt-20'>
           <h1 className='text-3xl md:text-4xl font-bold mb-4'>
             <span className='bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent'>Detalles de la Rifa</span>
           </h1>
@@ -18,8 +18,6 @@ export function RaffleContent ({ raffle, onSubmit }) {
         <div className='grid grid-cols-1 gap-8'>
           <div className='lg:col-span-2'>
             <RaffleDetails raffle={raffle} />
-            {/* Ranking del 10 al 1 */}
-            {raffle?.id && <UserRankingTop10 raffleId={raffle.id} />}
           </div>
           <div className='lg:col-span-1 w-full'>
             <div className='bg-[#111111] rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)] overflow-hidden sticky top-24'>
@@ -30,6 +28,8 @@ export function RaffleContent ({ raffle, onSubmit }) {
             </div>
           </div>
         </div>
+        {/* Ranking del 10 al 1 */}
+        {raffle?.id && <UserRankingTop10 raffleId={raffle.id} />}
       </div>
     </main>
   )

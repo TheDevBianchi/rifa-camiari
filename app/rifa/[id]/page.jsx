@@ -9,6 +9,7 @@ import { RaffleErrorState } from '@/components/rifas/raffle-error-state'
 import { RaffleContent } from '@/components/rifas/raffle-content'
 import SuccessModal from '@/components/rifas/success-modal'
 import { useRaffleDetails } from '@/hooks/useRaffleDetails'
+import Navbar from '@/components/layout/navbar'
 
 const RafflePage = () => {
   const { id } = useParams()
@@ -36,7 +37,7 @@ const RafflePage = () => {
       </div>
       
       <div className='relative'>
-        <Header />
+        <Navbar />
         {isLoading ? (
           <RaffleLoadingState />
         ) : raffle ? (
