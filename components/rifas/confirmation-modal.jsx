@@ -52,7 +52,7 @@ const ConfirmationModal = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[8888]"
             onClick={() => onClose()}
             aria-hidden="true"
           />
@@ -186,7 +186,7 @@ const ConfirmationModal = ({
               </ScrollArea>
 
               {/* Botones fijos abajo */}
-              <div className="absolute bottom-0 left-0 w-full px-6 pb-6 pt-4 bg-black/80 border-t border-primary-500/10 flex gap-3 z-20">
+              <div className="absolute bottom-0 left-0 w-full px-6 pb-6 pt-4 bg-black/80 border-t border-primary-500/10 flex gap-3 z-[9999]">
                 <button
                   onClick={onConfirm}
                   disabled={isSubmitting}
