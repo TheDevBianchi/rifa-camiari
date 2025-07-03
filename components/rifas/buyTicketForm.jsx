@@ -181,14 +181,9 @@ const BuyTicketForm = ({ raffle, onSubmit }) => {
         setValue={setValue}
         dollarPrice={dollarPrice}
         setPromotionData={setPromotionData}
-      />
-      <PaymentInfoSection
-        control={control}
-        errors={errors}
         paymentMethods={paymentMethods}
         loading={loading}
         selectedMethod={selectedMethod}
-        raffle={raffle}
       />
       <FloatingTotal
         ticketCount={ticketCount}

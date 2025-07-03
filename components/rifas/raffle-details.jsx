@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, DollarSign, Calendar, Tag } from "lucide-react";
-import { formatDate } from "@/lib/utils";
+import { ChevronLeft, ChevronRight, DollarSign, Tag } from "lucide-react";
 import { PromoDisplay } from "./PromoDisplay";
 
 export function RaffleDetails({ raffle }) {
@@ -26,7 +25,6 @@ export function RaffleDetails({ raffle }) {
   // Calcular el progreso de la rifa
   const progress = ((raffle.totalTickets - raffle.availableNumbers) / raffle.totalTickets) * 100;
   const progressFormatted = Number(progress.toFixed(2));
-  const progressRounded = Math.round(progress);
 
   return (
     <div className="w-full bg-[#111111] rounded-xl overflow-hidden border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]">
@@ -127,85 +125,7 @@ export function RaffleDetails({ raffle }) {
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0.1)_30%,rgba(255,255,255,0)_50%)] animate-shine"></div>
             </div>
             <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-xs font-bold text-gray-200 mix-blend-difference">
-              {progressRounded}%
-            </div>
-          </div>
-        </div>
-
-        {/* Grid de información */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Detalles de la Rifa */}
-          <div className="bg-black/40 p-5 rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]">
-            <h3 className="text-xl font-bold text-primary-400 mb-4 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-primary-400" />
-              Detalles de la Rifa
-            </h3>
-            <div className="space-y-3">
-              <p className="flex justify-between items-center">
-                <span className="text-white">Precio por ticket:</span>
-                <span className="text-xl font-bold text-primary-400">
-                  ${raffle.price} USD
-                </span>
-              </p>
-              <p className="flex justify-between items-center">
-                <span className="text-white">Tickets mínimos:</span>
-                <span className="text-gray-300">{raffle.minTickets}</span>
-              </p>
-              <p className="flex justify-between items-center">
-                <span className="text-white">Total de tickets:</span>
-                <span className="text-gray-300">{raffle.totalTickets}</span>
-              </p>
-              <p className="flex justify-between items-center">
-                <span className="text-white">Tickets vendidos:</span>
-                <span className="text-gray-300">{raffle.soldTickets?.length || 0}</span>
-              </p>
-              <p className="flex justify-between items-center">
-                <span className="text-white">Tickets disponibles:</span>
-                <span className="text-gray-300">{raffle.availableNumbers}</span>
-              </p>
-
-              {/* Promociones disponibles */}
-              <div className="mt-4 pt-4 border-t border-gray-700/50">
-                <h4 className="text-lg font-medium text-primary-400 mb-3 flex items-center gap-2">
-                  <Tag className="w-4 h-4 text-primary-400" />
-                  Promociones Disponibles
-                </h4>
-                <PromoDisplay raffleId={raffle.id} ticketPrice={raffle.price} />
-              </div>
-            </div>
-          </div>
-
-          {/* Fechas Importantes */}
-          <div className="bg-black/40 p-5 rounded-xl border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(140,82,255,0.1)]">
-            <h3 className="text-xl font-bold text-primary-400 mb-4 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-primary-400" />
-              Fechas Importantes
-            </h3>
-            <div className="space-y-3">
-              <p className="flex justify-between items-center">
-                <span className="text-white">Inicio:</span>
-                <span className="text-gray-300">
-                  {raffle.startDate ? formatDate(raffle.startDate) : 'Fecha no disponible'}
-                </span>
-              </p>
-              <p className="flex justify-between items-center">
-                <span className="text-white">Finalización:</span>
-                <span className="text-gray-300">
-                  {raffle.endDate ? formatDate(raffle.endDate) : 'Aún no está definida'}
-                </span>
-              </p>
-
-              {/* Información adicional */}
-              <div className="mt-6 pt-6 border-t border-gray-700/50">
-                <div className="bg-primary-500/10 p-4 rounded-lg border border-primary-500/20">
-                  <h4 className="text-primary-400 font-medium mb-2">Información importante</h4>
-                  <ul className="text-gray-300 text-sm space-y-2 list-disc pl-4">
-                    <li>El sorteo se realizará en vivo por nuestras redes sociales.</li>
-                    <li>Los ganadores serán contactados por correo electrónico y teléfono.</li>
-                    <li>El premio será entregado en un plazo máximo de 7 días hábiles.</li>
-                  </ul>
-                </div>
-              </div>
+              {progressFormatted}%
             </div>
           </div>
         </div>

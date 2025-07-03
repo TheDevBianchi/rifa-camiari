@@ -1,5 +1,6 @@
 import { RaffleDetails } from './raffle-details'
 import RaffleForm from './buyTicketForm'
+import RaffleDate from './raffle-date'
 
 export function RaffleContent ({ raffle, onSubmit }) {
   return (
@@ -27,6 +28,7 @@ export function RaffleContent ({ raffle, onSubmit }) {
             </div>
           </div>
         </div>
+          <RaffleDate raffle={raffle} />
       </div>
     </main>
   )
