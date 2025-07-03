@@ -1,6 +1,5 @@
 import { RaffleDetails } from './raffle-details'
 import RaffleForm from './buyTicketForm'
-import { UserRankingTop10 } from '@/components/dashboard/UserRanking'
 
 export function RaffleContent ({ raffle, onSubmit }) {
   return (
@@ -28,8 +27,6 @@ export function RaffleContent ({ raffle, onSubmit }) {
             </div>
           </div>
         </div>
-        {/* Ranking del 10 al 1 */}
-        {raffle?.id && <UserRankingTop10 raffleId={raffle.id} />}
       </div>
     </main>
   )
